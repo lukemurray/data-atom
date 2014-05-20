@@ -1,0 +1,17 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Execute query': 'data-atom:execute'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Data Atom'
+      'submenu': [
+        { 'label': 'Execute', 'command': 'data-atom:execute' }
+        { 'label': 'Toggle results view', 'command': 'data-atom:toggle-view' }
+      ]
+    ]
+  }
+]
