@@ -1,10 +1,9 @@
 {
   "name": "data-atom",
   "main": "./lib/data-atom",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Query and manage data sources (databases) from within Atom",
-  "activationEvents": [
-  ],
+  "activationEvents": [],
   "repository": "https://github.com/lukemurray/data-atom",
   "license": "MIT",
   "engines": {
