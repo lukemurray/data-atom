@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "description": "Query and manage data sources from within Atom",
   "activationEvents": [
-    "data-atom:toggle"
   ],
   "repository": "https://github.com/lukemurray/data-atom",
   "license": "MIT",
