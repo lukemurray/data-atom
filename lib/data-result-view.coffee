@@ -25,7 +25,7 @@ class DataResultView extends View
       switch results.command
          when 'UPDATE' then results.rowCount + ' rows updated.'
          when 'DELETE' then results.rowCount + ' rows deleted.'
-         else results
+         else JSON.stringify(results)
 
    buildResultGrid: (results) ->
       @message.hide()

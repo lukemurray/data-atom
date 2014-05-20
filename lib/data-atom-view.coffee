@@ -59,8 +59,10 @@ class DataAtomView extends View
 
    actuallyExecute: ->
       @toggleView() if !@hasParent()
+      editor = atom.workspace.getActiveEditor()
+      query = if editor.getSelectedText() then editor.getSelectedText() else editor.getText()
 
-      @dataManager.execute atom.workspace.getActiveEditor().getText()
+      @dataManager.execute query
       , (result) =>
          console.log result
          @resultView.setResults(result)
