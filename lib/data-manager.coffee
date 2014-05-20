@@ -22,7 +22,7 @@ class DataManager
                console.log 'Query error - ' + err
                onError err unless !onError
             else if onSuccess
-               onSuccess result
+               onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
 
    setConnection: (url) =>
       @url = url

@@ -8,12 +8,15 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 
 ##Features
 - Connects to PostgreSQL
+- Shows query results
 - Not much else yet :)
 
 ##Todo
 - Replace grid with something better
-- Url in connection dialog should split to fill other inputs
-- DB type in connection dialog should show supported 'engines'
+- Connection dialog
+   - Url in connection dialog should split to fill other inputs
+   - DB type in connection dialog should show supported 'engines'
+   - ESC should close it
 - Results per file
 - Manage connections
    - multiple connections
