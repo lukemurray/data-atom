@@ -9,22 +9,22 @@ DataAtom = require '../lib/data-atom'
 describe "DataAtom", ->
   activationPromise = null
 
-  beforeEach ->
-    atom.workspaceView = new WorkspaceView
-    activationPromise = atom.packages.activatePackage('data-atom')
+  # beforeEach ->
+  #   atom.workspaceView = new WorkspaceView
+  #   activationPromise = atom.packages.activatePackage('data-atom')
 
-  describe "when the data-atom:toggle event is triggered", ->
-    it "attaches and then detaches the view", ->
-      expect(atom.workspaceView.find('.data-atom')).not.toExist()
-
-      # This is an activation event, triggering it will cause the package to be
-      # activated.
-      atom.workspaceView.trigger 'data-atom:toggle'
-
-      waitsForPromise ->
-        activationPromise
-
-      runs ->
-        expect(atom.workspaceView.find('.data-atom')).toExist()
-        atom.workspaceView.trigger 'data-atom:toggle'
-        expect(atom.workspaceView.find('.data-atom')).not.toExist()
+  # describe "when the data-atom:toggle event is triggered", ->
+  #   it "attaches and then detaches the view", ->
+  #     expect(atom.workspaceView.find('.data-atom')).not.toExist()
+  #
+  #     # This is an activation event, triggering it will cause the package to be
+  #     # activated.
+  #     atom.workspaceView.trigger 'data-atom:toggle'
+  #
+  #     waitsForPromise ->
+  #       activationPromise
+  #
+  #     runs ->
+  #       expect(atom.workspaceView.find('.data-atom')).toExist()
+  #       atom.workspaceView.trigger 'data-atom:toggle'
+  #       expect(atom.workspaceView.find('.data-atom')).not.toExist()

@@ -50,9 +50,10 @@ class DataAtomView extends View
    execute: ->
       if !@dataManager.hasConnection()
          # prompt for a connection
-         atom.workspaceView.appendToTop(new NewConnectionView((url) =>
+         ncv = new NewConnectionView((url) =>
             @dataManager.setConnection(url)
-            @actuallyExecute()))
+            @actuallyExecute())
+         ncv.show()
       else
          @actuallyExecute()
 
