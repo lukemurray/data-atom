@@ -1,14 +1,13 @@
-#{allowUnsafeEval, allowUnsafeNewFunction} = require 'loophole'
 pg = require 'pg'
 
-@url = undefined
+DataManager = require './data-manager'
 
 module.exports =
-class DataManager
-   hasConnection: =>
-      @url != undefined
+class PostgresManager extends DataManager
+   constructor: (url) ->
+      super(url)
 
-   execute: (query, onSuccess, onError) =>
+   execute: (query, onSuccess, onError) ->
       pg.connect @url, (err, client, done) =>
          if err
             console.error 'Error fetching client from pool', err
@@ -24,6 +23,3 @@ class DataManager
             else if onSuccess
                #console.log result
                onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
-
-   setConnection: (url) =>
-      @url = url

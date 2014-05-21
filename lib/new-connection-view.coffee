@@ -1,9 +1,11 @@
 URL = require 'url'
 
-{$, View, EditorView, SelectListView} = require 'atom'
+{$, View, EditorView} = require 'atom'
 
 _ = require 'underscore'
 _s = require 'underscore.string'
+
+DbFactory = require './data-managers/db-factory'
 
 module.exports =
 class NewConnectionView extends View
@@ -17,7 +19,7 @@ class NewConnectionView extends View
             @div class: 'form-group', =>
                @label 'URL', class: 'col-md-2 control-label'
                @div class: 'col-md-10', =>
-                  @subview 'url', new EditorView(mini:true, placeholderText: 'postgresql://user:pass@server:5432/db-name')
+                  @subview 'url', new EditorView(mini:true)
             @div class: 'form-group', =>
                @label 'DB Type', class: 'col-md-2 control-label'
                @div class: 'col-md-4', =>
@@ -28,7 +30,7 @@ class NewConnectionView extends View
                   @subview 'dbServer', new EditorView(mini:true, placeholderText: 'localhost', change: 'buildUrl')
                @label 'Port', class: 'col-md-2 control-label'
                @div class: 'col-md-3', =>
-                  @subview 'dbPort', new EditorView(mini:true, placeholderText: '5432')
+                  @subview 'dbPort', new EditorView(mini:true)
             @div class: 'form-group', =>
                @label 'Auth', class: 'col-md-2 control-label'
                @div class: 'col-md-5', =>
@@ -47,9 +49,10 @@ class NewConnectionView extends View
                @button 'Connect', class: 'btn btn-default', click: 'connect'
                @button 'Close', class: 'btn btn-default btn-padding-left', click: 'close'
 
-   initialize: (onDone) ->
-      @onDone = onDone
-      #@databaseType.setItems(['postgresql', 'sqlserver', 'mongodb'])
+   initialize: (onConnectClicked) ->
+      @onConnectClicked = onConnectClicked
+      @placeholderUrlPart = '://user:pass@server/db-name'
+
       @dbUser.getEditor().on 'contents-modified', => @buildUrl()
       @dbPassword.getEditor().on 'contents-modified', => @buildUrl()
       @dbServer.getEditor().on 'contents-modified', => @buildUrl()
@@ -58,6 +61,17 @@ class NewConnectionView extends View
       @dbOptions.getEditor().on 'contents-modified', => @buildUrl()
 
       @url.getEditor().on 'contents-modified', => @seperateUrl()
+
+      supportedDbs = DbFactory.getSupportedDatabases()
+      for type in supportedDbs
+         @dbType.append('<option value="' + type.prefix + '" data-port="' + type.port + '">' + type.name + '</option>')
+
+      #set placeholder text to the first one
+      @urlPrefix = supportedDbs[0].prefix
+      @url.setPlaceholderText(@urlPrefix + @placeholderUrlPart)
+      @dbPort.setPlaceholderText(supportedDbs[0].port)
+
+      @dbType.on 'change', (e) => @updateDbType(e)
 
    show: ->
       atom.workspaceView.appendToTop(this)
@@ -84,7 +98,7 @@ class NewConnectionView extends View
    buildUrl: ->
       return if @url.isFocused
       # just use postgres for now
-      urlStr = 'postgresql://'
+      urlStr = @urlPrefix + '://'
 
       userPass = @dbUser.getText() + ':' + @dbPassword.getText()
       if (userPass != ':')
@@ -101,6 +115,14 @@ class NewConnectionView extends View
 
       @url.setText(urlStr)
 
+   updateDbType: (e) ->
+      for n in @dbType.children()
+         if n.selected
+            @urlPrefix = $(n).attr('value')
+            @dbPort.setPlaceholderText($(n).attr('data-port'))
+            @url.setPlaceholderText(@urlPrefix + @placeholderUrlPart)
+            return
+
    connect: ->
-      @onDone(@url.getText()) unless !@onDone
+      @onConnectClicked(@url.getText()) unless !@onConnectClicked
       @close()

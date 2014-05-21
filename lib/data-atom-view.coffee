@@ -3,6 +3,7 @@
 DataResultView = require './data-result-view'
 HeaderView = require './header-view'
 NewConnectionView = require './new-connection-view'
+DbFactory = require './data-managers/db-factory'
 
 module.exports =
 class DataAtomView extends View
@@ -12,8 +13,7 @@ class DataAtomView extends View
          @subview 'headerView', new HeaderView()
          @subview 'resultView', new DataResultView()
 
-   initialize: (serializeState, dataManager) ->
-      @dataManager = dataManager
+   initialize: (serializeState) ->
       atom.workspaceView.command "data-atom:execute", => @execute()
       atom.workspaceView.command 'data-atom:toggle-view', => @toggleView()
 
@@ -48,10 +48,10 @@ class DataAtomView extends View
       @resultView.updateHeight(@height() - @headerView.height() - 20)
 
    execute: ->
-      if !@dataManager.hasConnection()
+      if !@dataManager
          # prompt for a connection
          ncv = new NewConnectionView((url) =>
-            @dataManager.setConnection(url)
+            @dataManager = DbFactory.createDataManagerForUrl(url)
             @actuallyExecute())
          ncv.show()
       else
