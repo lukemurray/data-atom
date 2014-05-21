@@ -19,9 +19,10 @@ class DataManager
             done();
 
             if err
-               console.log 'Query error - ' + err
+               console.error 'Query error - ' + err
                onError err unless !onError
             else if onSuccess
+               #console.log result
                onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
 
    setConnection: (url) =>

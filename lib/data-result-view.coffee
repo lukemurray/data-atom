@@ -12,8 +12,13 @@ class DataResultView extends View
 
    initialize: ->
 
-   updateHeight: (height) =>
+   updateHeight: (height) ->
       @height(height)
+
+   clear: ->
+      @message.empty()
+      @header.empty()
+      @resultBody.empty()
 
    setResults: (results) ->
       if results.command != 'SELECT'
@@ -49,6 +54,6 @@ class DataResultView extends View
 
    setMessage: (msg) ->
       @resultTable.hide()
-      @message.show()
       @message.empty()
+      @message.show()
       @message.append(msg)
