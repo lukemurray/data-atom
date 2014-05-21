@@ -2,7 +2,8 @@ URL = require 'url'
 
 {$, View, EditorView, SelectListView} = require 'atom'
 
-_ = require 'underscore.string'
+_ = require 'underscore'
+_s = require 'underscore.string'
 
 module.exports =
 class NewConnectionView extends View
@@ -29,7 +30,7 @@ class NewConnectionView extends View
                @div class: 'col-md-3', =>
                   @subview 'dbPort', new EditorView(mini:true, placeholderText: '5432')
             @div class: 'form-group', =>
-               @label 'Login', class: 'col-md-2 control-label'
+               @label 'Auth', class: 'col-md-2 control-label'
                @div class: 'col-md-5', =>
                   @subview 'dbUser', new EditorView(mini:true, placeholderText: 'username')
                @div class: 'col-md-5', =>
@@ -38,6 +39,10 @@ class NewConnectionView extends View
                @label 'Database', class: 'col-md-2 control-label'
                @div class: 'col-md-10', =>
                   @subview 'dbName', new EditorView(mini:true, placeholderText: 'database-name')
+            @div class: 'form-group', =>
+               @label 'Options', class: 'col-md-2 control-label'
+               @div class: 'col-md-10', =>
+                  @subview 'dbOptions', new EditorView(mini:true, placeholderText: 'option=value,ssl=true')
             @div class: 'pull-right', =>
                @button 'Connect', class: 'btn btn-default', click: 'connect'
                @button 'Close', class: 'btn btn-default btn-padding-left', click: 'close'
@@ -50,6 +55,7 @@ class NewConnectionView extends View
       @dbServer.getEditor().on 'contents-modified', => @buildUrl()
       @dbPort.getEditor().on 'contents-modified', => @buildUrl()
       @dbName.getEditor().on 'contents-modified', => @buildUrl()
+      @dbOptions.getEditor().on 'contents-modified', => @buildUrl()
 
       @url.getEditor().on 'contents-modified', => @seperateUrl()
 
@@ -64,10 +70,11 @@ class NewConnectionView extends View
       return if !@url.isFocused
       urlObj = URL.parse(@url.getText())#, true)
       if urlObj
-         @urlQueryStr = urlObj.query
+         if urlObj.query
+            @dbOptions.setText(urlObj.query.replace('&', ', '))
          @dbServer.setText(urlObj.hostname) unless !urlObj.hostname
          @dbPort.setText(urlObj.port) unless !urlObj.port
-         @dbName.setText(_.ltrim(urlObj.pathname, '/'))
+         @dbName.setText(_s.ltrim(urlObj.pathname, '/'))
          if urlObj.auth
             auth = urlObj.auth.split(':')
             if auth
@@ -87,7 +94,10 @@ class NewConnectionView extends View
       if @dbPort.getText() != ''
          urlStr += ':' + @dbPort.getText()
       urlStr += '/' + @dbName.getText()
-      urlStr += '?' + @urlQueryStr if @urlQueryStr
+      if @dbOptions.getText()
+         urlStr += '?'
+         _.each(@dbOptions.getText().split(','), (s) => urlStr += _s.trim(s) + '&')
+         urlStr = _s.rtrim(urlStr, '&')
 
       @url.setText(urlStr)
 

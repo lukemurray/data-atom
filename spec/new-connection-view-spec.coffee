@@ -58,6 +58,12 @@ describe "NewConnectionView", ->
          expect(view.dbUser.getText()).toEqual('me')
          expect(view.dbPassword.getText()).toEqual('password1')
 
+      it "updates the options from url", ->
+         expect(view.dbOptions.getText()).toEqual('')
+         view.url.setText('postgresql://me:password1@server/myDb?o=v&hello=world')
+         advanceClock(modifiedDelay)
+         expect(view.dbOptions.getText()).toEqual('o=v, hello=world')
+
    describe "when modifying values other than URL", ->
       modifiedDelay = null
       view = null
@@ -90,3 +96,15 @@ describe "NewConnectionView", ->
          view.dbName.setText('places')
          advanceClock(modifiedDelay)
          expect(view.url.getText()).toEqual('postgresql://my-server/places')
+
+      it "reads the options", ->
+         view.dbOptions.setText('ssl=true')
+         view.dbServer.setText('places')
+         advanceClock(modifiedDelay)
+         expect(view.url.getText()).toEqual('postgresql://places/?ssl=true')
+
+      it "reads multiple options", ->
+         view.dbOptions.setText('ssl=true, option=val')
+         view.dbServer.setText('places')
+         advanceClock(modifiedDelay)
+         expect(view.url.getText()).toEqual('postgresql://places/?ssl=true&option=val')

@@ -12,6 +12,7 @@
   "dependencies": {
     "loophole": "^1.0.0",
     "pg": "^3.1.0",
+    "underscore": "^1.6.0",
     "underscore.string": "^2.3.3"
   }
 }

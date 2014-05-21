@@ -17,6 +17,7 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 - Connection dialog
    - DB type in connection dialog should show supported 'engines'
    - ESC should close it
+   - Should be modal
 - Show feedback that queries are executing
 - Results per file
 - Manage connections
