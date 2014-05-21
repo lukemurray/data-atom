@@ -16,6 +16,48 @@ describe "NewConnectionView", ->
          view.close()
          expect(atom.workspaceView.find('.connection-dialog')).not.toExist()
 
+   describe "when modifying the URL it updates the other fields", ->
+      modifiedDelay = null
+      view = null
+
+      beforeEach ->
+         view = new NewConnectionView(() =>)
+         view.show()
+         view.url.isFocused = true # hack!
+         modifiedDelay = view.url.getEditor().getBuffer().stoppedChangingDelay
+
+      it "updates the server field", ->
+         expect(view.dbServer.getText()).toEqual('')
+         view.url.setText('postgresql://localhost')
+         advanceClock(modifiedDelay)
+         expect(view.dbServer.getText()).toEqual('localhost')
+
+      it "updates the server field with full url", ->
+         expect(view.dbServer.getText()).toEqual('')
+         view.url.setText('postgresql://user:password1@server:9873/awesomeDb')
+         advanceClock(modifiedDelay)
+         expect(view.dbServer.getText()).toEqual('server')
+
+      it "updates the port field with full url", ->
+         expect(view.dbPort.getText()).toEqual('')
+         view.url.setText('postgresql://user:password1@server:9873/awesomeDb')
+         advanceClock(modifiedDelay)
+         expect(view.dbPort.getText()).toEqual('9873')
+
+      it "updates the db name field with full url", ->
+         expect(view.dbName.getText()).toEqual('')
+         view.url.setText('postgresql://user:password1@server:9873/myDb')
+         advanceClock(modifiedDelay)
+         expect(view.dbName.getText()).toEqual('myDb')
+
+      it "updates the user & password field with full url", ->
+         expect(view.dbUser.getText()).toEqual('')
+         expect(view.dbPassword.getText()).toEqual('')
+         view.url.setText('postgresql://me:password1@server:9873/myDb')
+         advanceClock(modifiedDelay)
+         expect(view.dbUser.getText()).toEqual('me')
+         expect(view.dbPassword.getText()).toEqual('password1')
+
    describe "when modifying values other than URL", ->
       modifiedDelay = null
       view = null

@@ -14,7 +14,7 @@ class DataManager
             console.error 'Error fetching client from pool', err
             onError err
 
-         client.query query, (err, result) =>
+         client.query {text: query, rowMode: 'array'}, (err, result) =>
             # call `done()` to release the client back to the pool
             done();
 

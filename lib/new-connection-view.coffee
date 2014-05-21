@@ -1,4 +1,8 @@
+URL = require 'url'
+
 {$, View, EditorView, SelectListView} = require 'atom'
+
+_ = require 'underscore.string'
 
 module.exports =
 class NewConnectionView extends View
@@ -47,6 +51,8 @@ class NewConnectionView extends View
       @dbPort.getEditor().on 'contents-modified', => @buildUrl()
       @dbName.getEditor().on 'contents-modified', => @buildUrl()
 
+      @url.getEditor().on 'contents-modified', => @seperateUrl()
+
    show: ->
       atom.workspaceView.appendToTop(this)
       @url.focus()
@@ -54,7 +60,22 @@ class NewConnectionView extends View
    close: ->
       @detach() unless !@hasParent()
 
+   seperateUrl: ->
+      return if !@url.isFocused
+      urlObj = URL.parse(@url.getText())#, true)
+      if urlObj
+         @urlQueryStr = urlObj.query
+         @dbServer.setText(urlObj.hostname) unless !urlObj.hostname
+         @dbPort.setText(urlObj.port) unless !urlObj.port
+         @dbName.setText(_.ltrim(urlObj.pathname, '/'))
+         if urlObj.auth
+            auth = urlObj.auth.split(':')
+            if auth
+               @dbUser.setText(auth[0])
+               @dbPassword.setText(auth[1]) unless auth.length == 1
+
    buildUrl: ->
+      return if @url.isFocused
       # just use postgres for now
       urlStr = 'postgresql://'
 
@@ -66,6 +87,7 @@ class NewConnectionView extends View
       if @dbPort.getText() != ''
          urlStr += ':' + @dbPort.getText()
       urlStr += '/' + @dbName.getText()
+      urlStr += '?' + @urlQueryStr if @urlQueryStr
 
       @url.setText(urlStr)
 
