@@ -68,6 +68,10 @@ class DataAtomView extends View
 
       @dataManager.execute query
       , (result) =>
-         @resultView.setResults(result)
+         if result.message
+            @resultView.setMessage(result.message)
+         else
+            @resultView.setResults(result)
       , (err) =>
          @resultView.setMessage(err)
+         @dataManager = null

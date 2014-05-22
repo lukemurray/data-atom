@@ -21,5 +21,18 @@ class PostgresManager extends DataManager
                console.error 'Query error - ' + err
                onError err unless !onError
             else if onSuccess
-               #console.log result
-               onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
+               @callOnSuccess result, onSuccess
+
+   # conver the results into what we expect so the UI doens't have to handle all different result types
+   callOnSuccess: (result, onSuccess) ->
+      #console.log result
+      if results.command != 'SELECT'
+         onSuccess { message: @buildMessage(results), command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
+      else
+         onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
+
+   buildMessage: (results) ->
+      switch results.command
+         when 'UPDATE' then results.rowCount + ' rows updated.'
+         when 'DELETE' then results.rowCount + ' rows deleted.'
+         else JSON.stringify(results)

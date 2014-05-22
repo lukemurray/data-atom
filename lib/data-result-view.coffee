@@ -21,18 +21,6 @@ class DataResultView extends View
       @resultBody.empty()
 
    setResults: (results) ->
-      if results.command != 'SELECT'
-         @setMessage(@buildMessage(results))
-      else
-         @buildResultGrid(results)
-
-   buildMessage: (results) ->
-      switch results.command
-         when 'UPDATE' then results.rowCount + ' rows updated.'
-         when 'DELETE' then results.rowCount + ' rows deleted.'
-         else JSON.stringify(results)
-
-   buildResultGrid: (results) ->
       @message.hide()
       @resultTable.show()
 
