@@ -26,8 +26,8 @@ class PostgresManager extends DataManager
    # conver the results into what we expect so the UI doens't have to handle all different result types
    callOnSuccess: (result, onSuccess) ->
       #console.log result
-      if results.command != 'SELECT'
-         onSuccess { message: @buildMessage(results), command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
+      if result.command != 'SELECT'
+         onSuccess { message: @buildMessage(result), command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
       else
          onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
 
