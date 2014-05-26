@@ -22,7 +22,6 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 ##Todo
 - Replace grid with something better
 - Connection dialog
-   - ESC should close it
    - Should be modal
 - Show feedback that queries are executing
 - Results per file

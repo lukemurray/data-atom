@@ -73,12 +73,20 @@ class NewConnectionView extends View
 
       @dbType.on 'change', (e) => @updateDbType(e)
 
+      @on 'core:cancel core:close', @detach
+
    show: ->
       atom.workspaceView.appendToTop(this)
       @url.focus()
 
    close: ->
-      @detach() unless !@hasParent()
+      @detach()
+
+   detch: ->
+      return unless @hasParent()
+
+      @off 'core:cancel core:close'
+      super()
 
    seperateUrl: ->
       return if !@url.isFocused
