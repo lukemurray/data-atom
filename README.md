@@ -24,7 +24,6 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 - Connection dialog
    - Should be modal
 - Show feedback that queries are executing
-- Results per file
 - Manage connections
    - multiple connections
    - able to disconnect
