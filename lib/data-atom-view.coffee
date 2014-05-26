@@ -72,6 +72,7 @@ class DataAtomView extends View
             @resultView.setMessage(result.message)
          else
             @resultView.setResults(result)
+            @headerView.update(atom.workspace.getActiveEditor().getTitle(), @dataManager.getConnectionName())
       , (err) =>
          @resultView.setMessage(err)
          @dataManager = null
