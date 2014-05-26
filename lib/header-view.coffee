@@ -11,9 +11,9 @@ class DataAtomView extends View
             click: 'close'
 
    close: ->
-      atom.workspaceView.trigger 'data-atom:toggle-view'
+      atom.workspaceView.trigger 'data-atom:toggle-results-view'
 
    initialize:  ->
 
-   update: (title, connectionName) ->
-      @title.text(title + ' results - Connection: ' + connectionName)
+   update: (connectionName) ->
+      @title.text('Results - Connection: ' + connectionName)

@@ -10,12 +10,7 @@ class DataResultView extends View
             @tbody outlet: 'resultBody'
          @span outlet: 'message'
 
-   initialize: ->
-      @subscribe atom.workspaceView, 'pane-container:active-pane-item-changed', =>
-         @updateResultsView
-
-   updateResultsView: ->
-
+   initialize: ->         
 
    updateHeight: (height) ->
       @height(height)

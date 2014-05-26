@@ -1,16 +1,16 @@
-DataAtomView = require('./data-atom-view')
+DataAtomController = require('./data-atom-controller')
 
-dataAtomView = null
+dataAtomController = null
 
 module.exports =
-   dataAtomView: null
+   dataAtomController: null
 
    activate: (state) ->
-      dataAtomView = new DataAtomView()
+      dataAtomController = new DataAtomController(state)
 
    deactivate: ->
-      dataAtomView.destroy()
+      dataAtomController.destroy()
       console.log("Data Atom off")
 
    serialize: ->
-      dataAtomViewState: dataAtomView.serialize()
+      dataAtomConrtollerState: dataAtomController.serialize()
