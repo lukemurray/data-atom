@@ -15,7 +15,7 @@ class DataAtomView extends View
 
    initialize: (serializeState) ->
       atom.workspaceView.command "data-atom:execute", => @execute()
-      atom.workspaceView.command 'data-atom:toggle-view', => @toggleView()
+      atom.workspaceView.command 'data-atom:toggle-results-view', => @toggleView()
 
       @on 'mousedown', '.resize-handle', (e) => @resizeStarted(e)
 

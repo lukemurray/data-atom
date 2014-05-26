@@ -12,6 +12,13 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 - See query results in a grid view
 - Not much else yet :)
 
+##Usage
+- <kbd>F5</kbd> or 'Data Atom: Execute' command
+   - Executes the current editor against the current connection. It will prompt if there is no current connection
+   - Only executes the selected text if there is any
+- <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>R</kbd> or 'Data Atom: Toggle Results View' command
+   - Toggle results view
+
 ##Todo
 - Replace grid with something better
 - Connection dialog
