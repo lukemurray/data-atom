@@ -18,7 +18,7 @@ class DataAtomController
       @currentViewState.view.show() if @currentViewState && @currentViewState.isShowing
 
    destroy: ->
-      # TODO destroy views
+      @currentViewState = null
 
    serialize: ->
 
