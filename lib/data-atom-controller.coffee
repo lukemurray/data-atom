@@ -14,7 +14,7 @@ class DataAtomController
 
    updateResultsView: ->
       @currentViewState?.view?.hide()
-      @currentViewState = @viewToEditor[atom.workspace.getActiveEditor().getPath()]
+      @currentViewState = @viewToEditor[atom.workspace.getActiveEditor()?.getPath()]
       @currentViewState.view.show() if @currentViewState && @currentViewState.isShowing
 
    destroy: ->
