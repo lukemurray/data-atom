@@ -14,8 +14,10 @@ class DataAtomController
 
    updateResultsView: ->
       @currentViewState?.view?.hide()
-      @currentViewState = @viewToEditor[atom.workspace.getActiveEditor()?.getPath()]
-      @currentViewState.view.show() if @currentViewState && @currentViewState.isShowing
+      @currentViewState = null;
+      if atom.workspace.getActiveEditor() && atom.workspace.getActiveEditor().getPath()
+         @currentViewState = @viewToEditor[atom.workspace.getActiveEditor().getPath()]
+         @currentViewState.view.show() if @currentViewState && @currentViewState.isShowing
 
    destroy: ->
       @currentViewState = null
@@ -29,7 +31,7 @@ class DataAtomController
       @currentViewState = @viewToEditor[atom.workspace.getActiveEditor().getPath()]
 
    toggleView: ->
-      @currentViewState?.view.toggleView()
+      @setOrCreateCurrentView().view.toggleView()
       @currentViewState.isShowing = @currentViewState.view.isShowing
 
    execute: ->

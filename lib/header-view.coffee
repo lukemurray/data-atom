@@ -16,4 +16,4 @@ class DataAtomView extends View
    initialize:  ->
 
    update: (connectionName) ->
-      @title.text('Results - Connection: ' + connectionName)
+      @title.text('Data Results - Connection: ' + connectionName)

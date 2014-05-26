@@ -12,7 +12,7 @@ class DataAtomView extends View
          @subview 'resultView', new DataResultView()
 
    initialize: (serializeState) ->
-      #@isShowing = false
+      @isShowing = false
       @on 'mousedown', '.resize-handle', (e) => @resizeStarted(e)
 
    # Returns an object that can be retrieved when package is activated
@@ -32,11 +32,11 @@ class DataAtomView extends View
       if @hasParent()
          #stop()
          @detach()
-         #@isShowing = false
+         @isShowing = false
       else
          atom.workspaceView.prependToBottom(this)
          @resultView.updateHeight(@height() - @headerView.height() - 20)
-         #@isShowing = true
+         @isShowing = true
 
    resizeStarted: =>
       $(document.body).on('mousemove', @resizeTreeView)
