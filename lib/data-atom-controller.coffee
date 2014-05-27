@@ -15,10 +15,10 @@ module.exports =
 class DataAtomController
    constructor: (serializeState) ->
       @viewToEditor = {}
-      @allConnections = {}
 
       @mainView = new DataAtomView()
       @mainView.on('data-atom:new-connection', => @createNewConnection())
+      @mainView.on('data-atom:disconnect', => @onDisconnect())
       @mainView.on('data-atom:result-view-height-changed', (e) =>
          @currentViewState.height = $(e.target).height())
 
@@ -39,7 +39,6 @@ class DataAtomController
    destroy: ->
       @mainView.off('data-atom:new-connection')
       @currentViewState = null
-      @allConnections = null
 
    serialize: ->
 
@@ -63,13 +62,19 @@ class DataAtomController
          @show()
       @getOrCreateCurrentResultView().isShowing = @mainView.isShowing
 
+   onDisconnect: ->
+      # currentViewState Will have the dataManager
+      @currentViewState.dataManager.destroy()
+      # see if other views have it as an active connection
+      for key in @viewToEditor
+         @viewToEditor[key].dataManager = null if @viewToEditor[key].dataManager.getConnectionName() == @currentViewState.dataManager.getConnectionName()
+      @currentViewState.dataManager = null
+
    createNewConnection: (thenDo) ->
       # prompt for a connection
       ncv = new NewConnectionView (url) =>
          dbmanager = DbFactory.createDataManagerForUrl(url)
          @getOrCreateCurrentResultView().dataManager = dbmanager
-         # We keep the connection around
-         @allConnections[dbmanager.getConnectionName()] = dbmanager
          # tell the view so it can list them in the drop down
          @mainView.headerView.addConnection(dbmanager.getConnectionName())
          thenDo() if thenDo

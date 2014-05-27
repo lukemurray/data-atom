@@ -6,7 +6,8 @@ class DataAtomView extends View
       @div class: 'panel-heading padded heading header-view results-header', =>
          @span 'Data Results on', class: 'heading-title', outlet: 'title'
          @span class: '', =>
-            @select outlet: 'connectionList', class: ''
+            @select outlet: 'connectionList', class: '', =>
+               @option 'Select connection...', value: '0', disabled: true
             @button 'New Connection...', class: 'btn btn-default', click: 'onNewConnection', outlet: 'connectionBtn'
             @button 'Disconnect', class: 'btn btn-default', click: 'onDisconnect', outlet: 'disconnectBtn'
          @span
@@ -34,8 +35,8 @@ class DataAtomView extends View
       # remove the connection from our list
       #@connectionList.children("option[value='" + connectionName + "']").prop('selected', true)
       @connectionList.children(":selected").remove()
-      unless @connectionList.children().length
+      unless @connectionList.children().length > 1
          @disconnectBtn.disable()
          @connectionList.disable()
-
+      @connectionList.children("option[value='0']").prop('selected', true)
       @trigger('data-atom:disconnect')

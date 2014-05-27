@@ -18,5 +18,7 @@ class DataManager
 
    execute: (query, onSuccess, onError) ->
 
+   destroy: ->
+
    getConnectionName: ->
       @config.user + '@' + @config.server + '/' + @config.database
