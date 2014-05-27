@@ -92,23 +92,23 @@ class DataAtomController
 
    execute: ->
       if !@currentViewState || !@currentViewState.dataManager
-         @createNewConnection(=> @actuallyExecute())
+         @createNewConnection(=> @actuallyExecute(@currentViewState))
       else
-         @actuallyExecute()
+         @actuallyExecute(@currentViewState)
 
-   actuallyExecute: ->
+   actuallyExecute: (executingViewState) ->
       # make sure it's showing
       @show()
-      @currentViewState.view.clear()
+      executingViewState.view.clear()
 
       editor = atom.workspace.getActiveEditor()
       query = if editor.getSelectedText() then editor.getSelectedText() else editor.getText()
 
-      @currentViewState.dataManager.execute query
+      executingViewState.dataManager.execute query
       , (result) =>
          if result.message
-            @currentViewState.view.setMessage(result.message)
+            executingViewState.view.setMessage(result.message)
          else
-            @currentViewState.view.setResults(result)
+            executingViewState.view.setResults(result)
       , (err) =>
-         @currentViewState.view.setMessage(err)
+         executingViewState.view.setMessage(err)
