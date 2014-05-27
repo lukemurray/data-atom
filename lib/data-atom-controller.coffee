@@ -51,6 +51,8 @@ class DataAtomController
 
    show: ->
       @mainView.setResultView(@getOrCreateCurrentResultView().view)
+      # set the selected connection too
+      @mainView.headerView.setConnection(@currentViewState.dataManager?.getConnectionName() ? '0')
       @mainView.show()
       @mainView.height(@currentViewState.height)
       @currentViewState.isShowing = true

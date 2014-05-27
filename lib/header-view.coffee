@@ -28,6 +28,9 @@ class DataAtomView extends View
       @connectionList.enable()
       @disconnectBtn.enable()
 
+   setConnection: (connectionName) ->
+      @connectionList.children("option[value='" + connectionName + "']").prop('selected', true)
+
    onNewConnection: ->
       @trigger('data-atom:new-connection')
 
