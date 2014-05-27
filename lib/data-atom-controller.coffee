@@ -73,12 +73,12 @@ class DataAtomController
             break;
 
    onDisconnect: ->
-      # see if other views have it as an active connection
+      disconnectingDataManager = @currentViewState.dataManager
+      # remove from all views that have it as an active connection
       for key, value of @viewToEditor
-         value.dataManager = null if value.dataManager?.getConnectionName() == @currentViewState.dataManager.getConnectionName()
+         value.dataManager = null if value.dataManager?.getConnectionName() == disconnectingDataManager.getConnectionName()
 
-      # currentViewState Will have the dataManager
-      @currentViewState.dataManager.destroy()
+      disconnectingDataManager.destroy()
       @currentViewState.dataManager = null
 
    createNewConnection: (thenDo) ->
