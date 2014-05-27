@@ -22,7 +22,8 @@ class DataAtomView extends View
       @disconnectBtn.disable()
 
    addConnection: (connectionName) ->
-      @connectionList.append('<option value="' + connectionName + '" selected>' + connectionName + '</option>')
+      @connectionList.append('<option value="' + connectionName + '">' + connectionName + '</option>')
+      @connectionList.children("option[value='" + connectionName + "']").prop('selected', true)
       @connectionList.enable()
       @disconnectBtn.enable()
 
@@ -30,4 +31,11 @@ class DataAtomView extends View
       @trigger('data-atom:new-connection')
 
    onDisconnect: ->
+      # remove the connection from our list
+      #@connectionList.children("option[value='" + connectionName + "']").prop('selected', true)
+      @connectionList.children(":selected").remove()
+      unless @connectionList.children().length
+         @disconnectBtn.disable()
+         @connectionList.disable()
+
       @trigger('data-atom:disconnect')
