@@ -19,4 +19,4 @@ class DataManager
    execute: (query, onSuccess, onError) ->
 
    getConnectionName: ->
-      @config.server + '/' + @config.database
+      @config.user + '@' + @config.server + '/' + @config.database

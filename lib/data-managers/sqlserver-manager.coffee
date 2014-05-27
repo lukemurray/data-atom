@@ -18,7 +18,6 @@ class SqlServerManager extends DataManager
             return
 
          # Query
-
          request = connection.request()
          request.query query, (err, recordset) =>
             if err

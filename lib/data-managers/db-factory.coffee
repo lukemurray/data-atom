@@ -1,8 +1,5 @@
 URL = require 'url'
 
-PostgresManager = require './postgres-manager'
-SqlServerManager = require './sqlserver-manager'
-
 class DbFactory
 
    getSupportedDatabases: ->
@@ -13,9 +10,14 @@ class DbFactory
 
    createDataManagerForUrl: (url) ->
       switch URL.parse(url).protocol.replace(':', '')
-         when 'postgresql' then new PostgresManager(url)
-         when 'sqlserver' then new SqlServerManager(url)
-         else throw Error('Unsupported database: ' + URL.parse(url).protocol)
+         when 'postgresql'
+            PostgresManager = require './postgres-manager'
+            new PostgresManager(url)
+         when 'sqlserver'
+            SqlServerManager = require './sqlserver-manager'
+            new SqlServerManager(url)
+         else
+            throw Error('Unsupported database: ' + URL.parse(url).protocol)
 
 factory = new DbFactory()
 

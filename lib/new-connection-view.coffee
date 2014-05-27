@@ -13,7 +13,7 @@ class NewConnectionView extends View
       @div class: 'connection-dialog overlay from-top padded', =>
          @div class: 'inset-panel', =>
             @div class: 'panel-heading heading header-view', =>
-               @span 'New connection...', class: 'heading-title', outlet: 'title'
+               @span 'New Connection', class: 'heading-title', outlet: 'title'
 
          @div class: 'panel-body padded form-horizontal', =>
             @div class: 'form-group', =>

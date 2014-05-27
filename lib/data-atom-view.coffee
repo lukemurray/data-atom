@@ -9,11 +9,15 @@ class DataAtomView extends View
       @div class: 'data-atom tool-panel panel panel-bottom padding native-key-bindings', =>
          @div class: 'resize-handle'
          @subview 'headerView', new HeaderView()
-         @subview 'resultView', new DataResultView()
 
    initialize: (serializeState) ->
       @isShowing = false
       @on 'mousedown', '.resize-handle', (e) => @resizeStarted(e)
+
+   setResultView: (resultView) ->
+      @resultView.detach() if @resultView
+      @resultView = resultView
+      @append(@resultView)
 
    # Returns an object that can be retrieved when package is activated
    serialize: ->
@@ -35,7 +39,7 @@ class DataAtomView extends View
          @isShowing = false
       else
          atom.workspaceView.prependToBottom(this)
-         @resultView.updateHeight(@height() - @headerView.height() - 20)
+         @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
          @isShowing = true
 
    resizeStarted: =>
@@ -49,7 +53,8 @@ class DataAtomView extends View
    resizeTreeView: ({pageY}) =>
       height = $(document.body).height() - pageY
       @height(height)
-      @resultView.updateHeight(@height() - @headerView.height() - 20)
+      @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
+      @trigger('data-atom:result-view-height-changed')
 
    clear: ->
       #clear results view and show things are happening
@@ -60,6 +65,3 @@ class DataAtomView extends View
 
    setResults: (result) ->
       @resultView.setResults(result)
-
-   updateHeader: (connectionName) ->
-      @headerView.update(connectionName)
