@@ -26,10 +26,10 @@ class DataAtomController
       atom.workspaceView.command "data-atom:execute", => @execute()
       atom.workspaceView.command 'data-atom:toggle-results-view', => @toggleView()
 
-      atom.workspaceView.on 'pane-container:active-pane-item-changed', => @updateResultsView()
+      atom.workspaceView.on 'pane-container:active-pane-item-changed', => @onActivePaneChanged()
 
    # show the results view for the selected editor
-   updateResultsView: ->
+   onActivePaneChanged: ->
       @mainView.hide()
       @currentViewState = null;
       if atom.workspace.getActiveEditor() && atom.workspace.getActiveEditor().getPath()
@@ -46,7 +46,7 @@ class DataAtomController
    # Gets or creates the ResultView state for the current editor
    getOrCreateCurrentResultView: ->
       if !@currentViewState && !@viewToEditor[atom.workspace.getActiveEditor().getPath()]
-         @viewToEditor[atom.workspace.getActiveEditor().getPath()] = {view: new DataResultView(), isShowing: false, dataManager: null}
+         @viewToEditor[atom.workspace.getActiveEditor().getPath()] = {view: new DataResultView(), isShowing: false, dataManager: null, height: 200}
 
       @currentViewState = @viewToEditor[atom.workspace.getActiveEditor().getPath()]
 
@@ -73,11 +73,12 @@ class DataAtomController
             break;
 
    onDisconnect: ->
-      # currentViewState Will have the dataManager
-      @currentViewState.dataManager.destroy()
       # see if other views have it as an active connection
       for key, value of @viewToEditor
          value.dataManager = null if value.dataManager?.getConnectionName() == @currentViewState.dataManager.getConnectionName()
+
+      # currentViewState Will have the dataManager
+      @currentViewState.dataManager.destroy()
       @currentViewState.dataManager = null
 
    createNewConnection: (thenDo) ->
