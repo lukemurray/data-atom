@@ -10,18 +10,18 @@ class PostgresManager extends DataManager
    execute: (query, onSuccess, onError) ->
       pg.connect @url, (err, client, done) =>
          if err
-            console.error 'Error fetching client from pool', err
+            console.error 'Error connecting to database', err
             onError err
+         else
+            client.query {text: query, rowMode: 'array'}, (err, result) =>
+               # call `done()` to release the client back to the pool
+               done();
 
-         client.query {text: query, rowMode: 'array'}, (err, result) =>
-            # call `done()` to release the client back to the pool
-            done();
-
-            if err
-               console.error 'Query error - ' + err
-               onError err unless !onError
-            else if onSuccess
-               @callOnSuccess result, onSuccess
+               if err
+                  console.error 'Query error - ' + err
+                  onError err unless !onError
+               else if onSuccess
+                  @callOnSuccess result, onSuccess
 
    # conver the results into what we expect so the UI doens't have to handle all different result types
    callOnSuccess: (result, onSuccess) ->
