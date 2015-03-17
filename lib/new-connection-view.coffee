@@ -1,6 +1,6 @@
 URL = require 'url'
 
-{$, View, EditorView} = require 'atom'
+{$, View, TextEditorView} = require 'atom-space-pen-views'
 
 _ = require 'underscore'
 _s = require 'underscore.string'
@@ -19,7 +19,7 @@ class NewConnectionView extends View
             @div class: 'form-group', =>
                @label 'URL', class: 'col-md-2 control-label'
                @div class: 'col-md-10', =>
-                  @subview 'url', new EditorView(mini:true)
+                  @subview 'url', new TextEditorView(mini:true)
             @div class: 'form-group', =>
                @label 'DB Type', class: 'col-md-2 control-label'
                @div class: 'col-md-4', =>
@@ -27,24 +27,24 @@ class NewConnectionView extends View
             @div class: 'form-group', =>
                @label 'Server', class: 'col-md-2 control-label'
                @div class: 'col-md-5', =>
-                  @subview 'dbServer', new EditorView(mini:true, placeholderText: 'localhost', change: 'buildUrl')
+                  @subview 'dbServer', new TextEditorView(mini:true, placeholderText: 'localhost', change: 'buildUrl')
                @label 'Port', class: 'col-md-2 control-label'
                @div class: 'col-md-3', =>
-                  @subview 'dbPort', new EditorView(mini:true)
+                  @subview 'dbPort', new TextEditorView(mini:true)
             @div class: 'form-group', =>
                @label 'Auth', class: 'col-md-2 control-label'
                @div class: 'col-md-5', =>
-                  @subview 'dbUser', new EditorView(mini:true, placeholderText: 'username')
+                  @subview 'dbUser', new TextEditorView(mini:true, placeholderText: 'username')
                @div class: 'col-md-5', =>
-                  @subview 'dbPassword', new EditorView(mini:true, placeholderText: 'password')
+                  @subview 'dbPassword', new TextEditorView(mini:true, placeholderText: 'password')
             @div class: 'form-group', =>
                @label 'Database', class: 'col-md-2 control-label'
                @div class: 'col-md-10', =>
-                  @subview 'dbName', new EditorView(mini:true, placeholderText: 'database-name')
+                  @subview 'dbName', new TextEditorView(mini:true, placeholderText: 'database-name')
             @div class: 'form-group', =>
                @label 'Options', class: 'col-md-2 control-label'
                @div class: 'col-md-10', =>
-                  @subview 'dbOptions', new EditorView(mini:true, placeholderText: 'option=value,ssl=true')
+                  @subview 'dbOptions', new TextEditorView(mini:true, placeholderText: 'option=value,ssl=true')
             @div class: 'pull-right', =>
                @button 'Connect', class: 'btn btn-default', click: 'connect'
                @button 'Close', class: 'btn btn-default btn-padding-left', click: 'close'

@@ -1,4 +1,4 @@
-{$, View} = require 'atom'
+{$, View} = require 'atom-space-pen-views'
 
 DataResultView = require './data-result-view'
 HeaderView = require './header-view'
@@ -7,8 +7,8 @@ module.exports =
 class DataAtomView extends View
    @content: ->
       @div class: 'data-atom tool-panel panel panel-bottom padding native-key-bindings', =>
-         @div class: 'resize-handle'
-         @subview 'headerView', new HeaderView()
+        @div class: 'resize-handle'
+        @subview 'headerView', new HeaderView()
 
    initialize: (serializeState) ->
       @isShowing = false
@@ -34,13 +34,13 @@ class DataAtomView extends View
 
    toggleView: ->
       if @hasParent()
-         #stop()
-         @detach()
-         @isShowing = false
+        #stop()
+        @detach()
+        @isShowing = false
       else
-         atom.workspaceView.prependToBottom(this)
-         @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
-         @isShowing = true
+        atom.workspace.addBottomPanel(item: this)
+        @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
+        @isShowing = true
 
    resizeStarted: =>
       $(document.body).on('mousemove', @resizeTreeView)

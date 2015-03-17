@@ -1,4 +1,4 @@
-{$, View} = require 'atom'
+{$, View} = require 'atom-space-pen-views'
 
 module.exports =
 class DataResultView extends View
@@ -10,7 +10,7 @@ class DataResultView extends View
             @tbody outlet: 'resultBody'
          @span outlet: 'message'
 
-   initialize: ->         
+   initialize: ->
 
    updateHeight: (height) ->
       @height(height)

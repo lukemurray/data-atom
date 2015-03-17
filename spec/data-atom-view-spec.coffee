@@ -1,4 +1,4 @@
-{WorkspaceView} = require 'atom'
+{WorkspaceView} = require 'atom-space-pen-views'
 
 DataAtomView = require '../lib/data-atom-view'
 

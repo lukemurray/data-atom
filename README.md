@@ -18,7 +18,7 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 - `F5` or 'Data Atom: Execute' command
    - Executes the current editor against the current connection. It will prompt if there is no current connection
    - Only executes the selected text if there is any
-- `CTRL`+`ALT`+`R` or 'Data Atom: Toggle Results View' command
+- `CMD`+`ALT`+`R` or 'Data Atom: Toggle Results View' command
    - Toggle results view
 
 ##Todo
@@ -27,9 +27,10 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
    - Should be modal
 - Show feedback that queries are executing
 - Manage connections
-   - show connection errors on connection dialog
+   - if connection fails don't keep it around
    - On execute if connections exist allow them to choose or create a new one
    - don't allow the same connection
+- allow user to change the db (on the same connection) they are executing against
 - Add support other DBs
     - MySql
     - Mongo DB
