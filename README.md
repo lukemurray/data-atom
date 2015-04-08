@@ -1,8 +1,8 @@
 # Data Atom package
 
-Data Atom allows you to build and run queries against your favourite databases and visualise the results, all from within Atom. The plan is to build it out with more data management support.
+Data Atom allows you to build and run queries against your favorite databases and visualize the results, all from within Atom. The plan is to build it out with more data management support.
 
-Note: This is a super early version of what I'm hoping it becomes... Feel free to open issues or pull requests!
+Note: This is a super early version of what I'm hoping it becomes... Feel free to open issues or make pull requests!
 
 ![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
 
