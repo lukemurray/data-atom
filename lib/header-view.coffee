@@ -16,14 +16,14 @@ class DataAtomView extends View
             click: 'close'
 
    close: ->
-      atom.workspaceView.trigger 'data-atom:toggle-results-view'
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:toggle-results-view');
 
    initialize: ->
       @connectionList.disable()
       @disconnectBtn.disable()
 
    onConnectionSelected: (e) ->
-      @trigger('data-atom:connection-changed')
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:connection-changed')
 
    addConnection: (connectionName) ->
       @connectionList.append('<option value="' + connectionName + '">' + connectionName + '</option>')
@@ -38,7 +38,7 @@ class DataAtomView extends View
       @connectionList.children(":selected").attr('value')
 
    onNewConnection: ->
-      @trigger('data-atom:new-connection')
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:new-connection')
 
    onDisconnect: ->
       # remove the connection from our list
@@ -48,4 +48,4 @@ class DataAtomView extends View
          @disconnectBtn.disable()
          @connectionList.disable()
       @connectionList.children("option[value='0']").prop('selected', true)
-      @trigger('data-atom:disconnect')
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:disconnect')

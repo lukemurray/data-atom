@@ -1,7 +1,8 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
-  '.overlayer':
-      'Execute query': 'data-atom:execute'
+  'atom-workspace': [
+    { 'label': 'Execute', 'command': 'data-atom:execute' }
+  ]
 
 'menu': [
   {

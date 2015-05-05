@@ -54,7 +54,7 @@ class DataAtomView extends View
       height = $(document.body).height() - pageY
       @height(height)
       @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
-      @trigger('data-atom:result-view-height-changed')
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:result-view-height-changed')
 
    clear: ->
       #clear results view and show things are happening
