@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "mssql": "^0.5.3",
-    "pg": "^3.2.0",
+    "pg": "^4.3.0",
     "underscore": "^1.6.0",
     "underscore.string": "^2.3.3",
     "atom-space-pen-views": "^2.0.3"
