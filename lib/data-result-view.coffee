@@ -4,10 +4,7 @@ module.exports =
 class DataResultView extends View
    @content: ->
       @div class: 'scrollable', =>
-         @table outlet: 'resultTable', =>
-            @thead =>
-               @tr outlet: 'header'
-            @tbody outlet: 'resultBody'
+         @div outlet: 'resultArea'
          @span outlet: 'message'
 
    initialize: ->
@@ -17,31 +14,44 @@ class DataResultView extends View
 
    clear: ->
       @message.empty()
-      @header.empty()
-      @resultBody.empty()
+      @resultArea.empty()
 
    setResults: (results) ->
       @message.hide()
-      @resultTable.show()
+      @resultArea.show()
 
-      @header.empty()
-      @resultBody.empty()
+      @resultArea.empty()
 
-      @header.append('<th>&nbsp;</th>') # row no.
+      for result in results
+        if result.message
+          @resultArea.append('<span>' + result.message + '</span>')
+          @resultArea.append('<br />')
+          @resultArea.append('<br />')
+        else
+          table = $(document.createElement('table'))
+          header = $(document.createElement('thead'))
+          table.append(header);
+          header.append('<th>&nbsp;</th>') # row no.
 
-      for field in results.fields
-         @header.append('<th>' + field.name + '</th>')
-      cnt = 1
-      for row in results.rows
-         rowEle = $(document.createElement('tr'))
-         rowEle.append('<td>' + cnt++ + '</td>')
-         @resultBody.append(rowEle)
-         for data in row
-            rowEle.append('<td>' + data + '</td>')
-         #@resultBody.append('</tr>')
+          for field in result.fields
+            header.append('<th>' + field.name + '</th>')
+          cnt = 1
+
+          body = $(document.createElement('tbody'))
+          table.append(body)
+
+          for row in result.rows
+            rowEle = $(document.createElement('tr'))
+            rowEle.append('<td>' + cnt++ + '</td>')
+            body.append(rowEle)
+            for data in row
+              rowEle.append('<td>' + data + '</td>')
+            #@resultBody.append('</tr>')
+          @resultArea.append(table)
+          @resultArea.append('<br />')
 
    setMessage: (msg) ->
-      @resultTable.hide()
+      @resultArea.hide()
       @message.empty()
       @message.show()
       @message.append(msg)

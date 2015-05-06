@@ -1,15 +1,15 @@
 {WorkspaceView} = require 'atom-space-pen-views'
 
-NewConnectionView = require '../lib/new-connection-view'
+NewConnectionDialog = require '../lib/new-connection-dialog'
 
-describe "NewConnectionView", ->
+describe "NewConnectionDialog", ->
    beforeEach ->
       atom.workspaceView = new WorkspaceView
       activationPromise = atom.packages.activatePackage('data-atom')
 
    describe "when calling show and close", ->
       it "shows then closes", ->
-         view = new NewConnectionView(() =>)
+         view = new NewConnectionDialog(() =>)
          expect(atom.workspaceView.find('.connection-dialog')).not.toExist()
          view.show()
          expect(atom.workspaceView.find('.connection-dialog')).toExist()
@@ -21,7 +21,7 @@ describe "NewConnectionView", ->
       view = null
 
       beforeEach ->
-         view = new NewConnectionView(() =>)
+         view = new NewConnectionDialog(() =>)
          view.show()
          view.url.isFocused = true # hack!
          modifiedDelay = view.url.getEditor().getBuffer().stoppedChangingDelay
@@ -69,7 +69,7 @@ describe "NewConnectionView", ->
       view = null
 
       beforeEach ->
-         view = new NewConnectionView(() =>)
+         view = new NewConnectionDialog(() =>)
          view.show()
          modifiedDelay = view.url.getEditor().getBuffer().stoppedChangingDelay
 

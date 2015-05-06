@@ -63,5 +63,5 @@ class DataAtomView extends View
    setMessage: (message) ->
       @resultView.setMessage(message)
 
-   setResults: (result) ->
-      @resultView.setResults(result)
+   setResults: (results) ->
+      @resultView.setResults(results)

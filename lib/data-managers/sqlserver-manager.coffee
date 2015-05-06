@@ -32,9 +32,9 @@ class SqlServerManager extends DataManager
    callOnSuccess: (result, onSuccess) ->
       #console.log result
       if results.command != 'SELECT'
-         onSuccess { message: @buildMessage(results), command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
+         onSuccess [{ message: @buildMessage(results), command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }]
       else
-         onSuccess { command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }
+         onSuccess [{ command: result.command, fields: result.fields, rowCount: result.rowCount, rows: result.rows }]
 
    buildMessage: (results) ->
       switch results.command
