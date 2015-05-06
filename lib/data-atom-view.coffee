@@ -6,7 +6,7 @@ HeaderView = require './header-view'
 module.exports =
 class DataAtomView extends View
    @content: ->
-      @div class: 'data-atom tool-panel panel panel-bottom padding native-key-bindings', =>
+      @div class: 'data-atom-panel tool-panel panel panel-bottom padding native-key-bindings', =>
         @div class: 'resize-handle'
         @subview 'headerView', new HeaderView()
 

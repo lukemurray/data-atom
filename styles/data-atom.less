@@ -5,88 +5,97 @@
 @import "ui-variables";
 
 .btn-padding-left {
-   margin-left: 10px;
+  margin-left: 10px;
 }
 
-.connection-dialog {
-   .form-group {
-      margin-bottom: 0;
-   }
+.dialog {
+  .heading {
+    padding-left: 5px;
+    font-size: 14pt;
+  }
+
+  select {
+    color: @text-color;
+    border-color: @panel-heading-background-color;
+    background-color: lighten(@overlay-background-color, 10%);
+    font-size: 1.25em;
+    height: 2em;
+  }
+
+  .form-group {
+    margin-bottom: 5px;
+  }
 }
 
-.data-atom {
-   position: relative;
-   height: 100%;
-   overflow: hidden;
-   cursor: default;
-   -webkit-user-select: none;
-   min-height: 100px;
-   height: 200px;
-   z-index: 2;
-   margin: 0;
+.data-atom-panel {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  cursor: default;
+  -webkit-user-select: none;
+  min-height: 100px;
+  height: 200px;
+  z-index: 2;
+  margin: 0;
 
-   .resize-handle {
-      position: absolute;
-      width: 100%;
-      height: 10px;
-      top: -5px;
-      cursor: row-resize;
-      z-index: 3;
-   }
+  .resize-handle {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: -5px;
+    cursor: row-resize;
+    z-index: 3;
+  }
 
-   .scrollable {
-      overflow: scroll;
-   }
+  .scrollable {
+    overflow: scroll;
+  }
 
-   tr {
-      max-height: 1em;
-   }
+  tr {
+    max-height: 1em;
+  }
 
-   tr:nth-child(even) {
-      background-color: @base-background-color;
+  tr:nth-child(even) {
+    background-color: @base-background-color;
 
-      td {
-         border-right: 1px solid @tool-panel-background-color;
-      }
-   }
+    td {
+      border-right: 1px solid @tool-panel-background-color;
+    }
+  }
 
-   td:first-child {
-      background-color: @panel-heading-background-color;
-      border-bottom: 1px solid @base-background-color;
-   }
+  td:first-child {
+    background-color: @panel-heading-background-color;
+    border-bottom: 1px solid @base-background-color;
+  }
 
-   td {
-      padding-top: 3px;
-      padding-bottom: 3px;
-      padding-left: 7px;
-      padding-right: 7px;
-      border-right: 1px solid @base-background-color;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      max-width: 500px;
-   }
+  td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-right: 1px solid @base-background-color;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 500px;
+  }
 
-   th {
-      padding: 7px;
-      border-right: 1px solid @base-background-color;
-      border-bottom: 1px solid @base-background-color;
-      background-color: @panel-heading-background-color;
-   }
+  th {
+    padding: 7px;
+    border-right: 1px solid @base-background-color;
+    border-bottom: 1px solid @base-background-color;
+    background-color: @panel-heading-background-color;
+  }
 
-   .connection-dialog {
+  .results-header {
+    select {
+      width: 250px;
+      margin-left: 10px;
+    }
 
-   }
-
-   .results-header {
-      select {
-         width: 250px;
-         margin-left: 10px;
-      }
-
-      button {
-         margin-left: 10px;
-         top: -1px;
-      }
-   }
+    button {
+      margin-left: 10px;
+      top: -1px;
+    }
+  }
 }
