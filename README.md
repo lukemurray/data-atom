@@ -23,16 +23,15 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 
 ##Todo
 - Replace grid with something better
-- Connection dialog
-   - Should be modal
 - Show feedback that queries are executing
 - Manage connections
    - if connection fails don't keep it around
    - On execute if connections exist allow them to choose or create a new one
    - don't allow the same connection
-- allow user to change the db (on the same connection) they are executing against
+- allow user to change the DB (on the same connection) they are executing against
 - Add support other DBs
     - MySql
     - Mongo DB
+    - better MS SQL Server
     - others?
- - Tree view for exploring tables columns etc.
+ - Tree view for exploring tables columns etc. ?
