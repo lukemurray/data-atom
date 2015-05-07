@@ -8,30 +8,31 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
 
 ##Features
 - Supports
-   - PostgreSQL
-   - Early support for MS SQL Server
-- See query results in a grid view
-- Different connections per editor view
-- Not much else yet :)
+  - PostgreSQL
+  - Early support for MS SQL Server
+- See query results below the executed query
+  - Separate results for each file
+  - Different connections per editor view
+- Easily change the database to execute against
+- Slowly working on more...
 
 ##Usage
 - `F5` or 'Data Atom: Execute' command
-   - Executes the current editor against the current connection. It will prompt if there is no current connection
-   - Only executes the selected text if there is any
+  - Executes the current editor against the current connection. It will prompt if there is no current connection
+  - Only executes the selected text if there is any
 - `CMD`+`ALT`+`R` or 'Data Atom: Toggle Results View' command
-   - Toggle results view
+  - Toggle results view
 
 ##Todo
 - Replace grid with something better
 - Show feedback that queries are executing
 - Manage connections
-   - if connection fails don't keep it around
-   - On execute if connections exist allow them to choose or create a new one
-   - don't allow the same connection
-- allow user to change the DB (on the same connection) they are executing against
+  - if connection fails don't keep it around
+  - On execute if connections exist allow them to choose or create a new one
+  - don't allow the same connection
 - Add support other DBs
-    - MySql
-    - Mongo DB
-    - better MS SQL Server
-    - others?
- - Tree view for exploring tables columns etc. ?
+  - MySql
+  - Mongo DB
+  - better MS SQL Server
+  - others?
+- Tree view for exploring tables columns etc. ?

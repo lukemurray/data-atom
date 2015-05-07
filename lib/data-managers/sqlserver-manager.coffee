@@ -11,7 +11,7 @@ class SqlServerManager extends DataManager
       'Error (' + err.code + ') - ' + err.message
 
    execute: (query, onSuccess, onError) =>
-      connection = new sql.Connection @config, (err) =>
+      connection = new sql.Connection {user: @config.user, password: @config.password, server: @config.server, database: @activeDatabase}, (err) =>
          if err
             console.error(err)
             onError(@buildError(err))

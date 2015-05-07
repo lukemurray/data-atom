@@ -5,63 +5,76 @@ HeaderView = require './header-view'
 
 module.exports =
 class DataAtomView extends View
-   @content: ->
-      @div class: 'data-atom-panel tool-panel panel panel-bottom padding native-key-bindings', =>
-        @div class: 'resize-handle'
-        @subview 'headerView', new HeaderView()
+  @content: ->
+    @div class: 'data-atom-panel tool-panel panel panel-bottom padding native-key-bindings', =>
+      @div class: 'resize-handle'
+      @subview 'headerView', new HeaderView()
+      @subview 'resultView', new DataResultView()
 
-   initialize: (serializeState) ->
-      @isShowing = false
-      @on 'mousedown', '.resize-handle', (e) => @resizeStarted(e)
+  initialize: (serializeState) ->
+    @isShowing = false
+    @on 'mousedown', '.resize-handle', (e) => @resizeStarted(e)
 
-   setResultView: (resultView) ->
-      @resultView.detach() if @resultView
-      @resultView = resultView
-      @append(@resultView)
+  setResults: (results) ->
+    @resultView.setResults(results);
 
-   # Returns an object that can be retrieved when package is activated
-   serialize: ->
+  # Returns an object that can be retrieved when package is activated
+  serialize: ->
 
-   # Tear down any state and detach
-   destroy: ->
+  # Tear down any state and detach
+  destroy: ->
+    @detach()
+
+  show: ->
+    @toggleView() if !@hasParent()
+    @headerHeight = @headerView.height() + 5
+
+  hide: ->
+    @toggleView() if @hasParent()
+
+  toggleView: ->
+    if @hasParent()
+      #stop()
       @detach()
+      @isShowing = false
+    else
+      atom.workspace.addBottomPanel(item: this)
+      @resultView.updateHeight(@height() - @headerView.height() - @headerHeight) if @resultView
+      @isShowing = true
 
-   show: ->
-      @toggleView() if !@hasParent()
+  resizeStarted: =>
+    $(document.body).on('mousemove', @resizeResultsView)
+    $(document.body).on('mouseup', @resizeStopped)
 
-   hide: ->
-      @toggleView() if @hasParent()
+  resizeStopped: =>
+    $(document.body).off('mousemove', @resizeResultsView)
+    $(document.body).off('mouseup', @resizeStopped)
 
-   toggleView: ->
-      if @hasParent()
-        #stop()
-        @detach()
-        @isShowing = false
-      else
-        atom.workspace.addBottomPanel(item: this)
-        @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
-        @isShowing = true
+  resizeResultsView: ({pageY}) =>
+    height = $(document.body).height() - pageY - @headerHeight
+    @height(height)
+    @resultView.updateHeight(@height() - @headerView.height() - @headerHeight) if @resultView
+    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:result-view-height-changed')
 
-   resizeStarted: =>
-      $(document.body).on('mousemove', @resizeTreeView)
-      $(document.body).on('mouseup', @resizeStopped)
+  clear: ->
+    #clear results view and show things are happening
+    @resultView.clear()
 
-   resizeStopped: =>
-      $(document.body).off('mousemove', @resizeTreeView)
-      $(document.body).off('mouseup', @resizeStopped)
+  setState: (connection, dbNames, selectedDb, height) ->
+    @headerView.setConnection(connection);
+    @headerView.addDbNames(dbNames);
+    @headerView.setSelectedDbName(selectedDb);
+    @height(height);
+    @resultView.updateHeight(@height() - @headerView.height() - @headerHeight) if @resultView
 
-   resizeTreeView: ({pageY}) =>
-      height = $(document.body).height() - pageY
-      @height(height)
-      @resultView.updateHeight(@height() - @headerView.height() - 20) if @resultView
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:result-view-height-changed')
+  setMessage: (message) ->
+    @resultView.setMessage(message)
 
-   clear: ->
-      #clear results view and show things are happening
-      @resultView.clear()
+  setResults: (results) ->
+    @resultView.setResults(results)
 
-   setMessage: (message) ->
-      @resultView.setMessage(message)
+  addConnection: (connectionName) ->
+    @headerView.addConnection(connectionName)
 
-   setResults: (results) ->
-      @resultView.setResults(results)
+  getHeight: () ->
+    @height()

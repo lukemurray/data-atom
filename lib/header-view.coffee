@@ -5,13 +5,14 @@ module.exports =
 class DataAtomView extends View
   @content: ->
     @div class: 'panel-heading padded heading header-view results-header', =>
-      @span 'Data Results on', class: 'heading-title', outlet: 'title'
-      @span class: '', =>
-        @select outlet: 'connectionList', class: '', change: 'onConnectionSelected', =>
-          @option 'Select connection...', value: '0', disabled: true
-        @select outlet: 'databaseList', class: '', change: 'onDatabaseSelected'
-        @button 'New Connection...', class: 'btn btn-default', click: 'onNewConnection', outlet: 'connectionBtn'
-        @button 'Disconnect', class: 'btn btn-default', click: 'onDisconnect', outlet: 'disconnectBtn'
+      @span 'Results for connection:', class: 'heading-title', outlet: 'title'
+      @select outlet: 'connectionList', class: '', change: 'onConnectionSelected', =>
+        @option 'Select connection...', value: '0', disabled: true
+      @span 'Database:', class: 'db-label'
+      @select outlet: 'databaseList', class: 'db-select', change: 'onDatabaseSelected', =>
+        @option 'Select database...', value: '', disabled: true
+      @button 'New Connection...', class: 'btn btn-default', click: 'onNewConnection', outlet: 'connectionBtn'
+      @button 'Disconnect', class: 'btn btn-default', click: 'onDisconnect', outlet: 'disconnectBtn'
       @span
         class: 'heading-close icon-remove-close pull-right'
         outlet: 'closeButton'
@@ -22,9 +23,11 @@ class DataAtomView extends View
 
   initialize: ->
     @connectionList.disable()
+    @databaseList.disable()
     @disconnectBtn.disable()
 
   onDatabaseSelected: (e) ->
+    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:connection-changed')
 
   onConnectionSelected: (e) ->
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:connection-changed')
@@ -36,15 +39,28 @@ class DataAtomView extends View
     @disconnectBtn.enable()
 
   addDbNames: (names) ->
+    for c,i in @databaseList.children()
+      if i > 0
+        c.remove()
+
     for name in names
       @databaseList.append('<option value="' + name + '">' + name + '</option>')
     @databaseList.enable()
 
+  setSelectedDbName: (name) ->
+    @databaseList.children("option[value='" + name + "']").prop('selected', true)
+
   setConnection: (connectionName) ->
     @connectionList.children("option[value='" + connectionName + "']").prop('selected', true)
+    if connectionName == '0'
+      @databaseList.disable()
+      @setSelectedDbName(connectionName)
 
   getSelectedConnection: ->
     @connectionList.children(":selected").attr('value')
+
+  getSelectedDatabase: ->
+    @databaseList.children(':selected').attr('value')
 
   onNewConnection: ->
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:new-connection')

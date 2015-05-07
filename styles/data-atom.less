@@ -90,16 +90,24 @@
 
   .results-header {
     select {
-      width: 250px;
+      width: 240px;
       margin-left: 10px;
       color: @text-color;
       border-color: @panel-heading-background-color;
       background-color: lighten(@overlay-background-color, 10%);
     }
 
+    .db-select {
+      width: 170px;
+    }
+
     button {
       margin-left: 10px;
       top: -1px;
+    }
+
+    .db-label {
+      padding-left: 8px;
     }
   }
 }

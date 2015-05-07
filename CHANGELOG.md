@@ -1,6 +1,8 @@
 ## 0.7.0 -
-* Fix focus bug in new connection dialog
 * Multiple queries will now correctly show each result data or message separately in the result view instead of a weird merged table (PostgreSQL only currently)
+* You can now select the database to execute against after adding a connection
+* Fix focus bug in new connection dialog
+* Height of results view now correctly remembered across views
 
 ## 0.6.1 -
 * Upgraded node-postgres to v4.3.0
