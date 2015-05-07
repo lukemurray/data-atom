@@ -1,6 +1,7 @@
 ## 0.7.0 -
-* Multiple queries will now correctly show each result data or message separately in the result view instead of a weird merged table (PostgreSQL only currently)
+* Multiple queries will now show each result data or message separately in the result view instead of a weird merged table (PostgreSQL only currently)
 * You can now select the database to execute against after adding a connection
+* Execution status and time displayed in the right of the status bar
 * Fix focus bug in new connection dialog
 * Height of results view now correctly remembered across views
 

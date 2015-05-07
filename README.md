@@ -22,10 +22,10 @@ Note: This is a super early version of what I'm hoping it becomes... Feel free t
   - Only executes the selected text if there is any
 - `CMD`+`ALT`+`R` or 'Data Atom: Toggle Results View' command
   - Toggle results view
+- Check the execution time in the right of the status bar
 
 ##Todo
 - Replace grid with something better
-- Show feedback that queries are executing
 - Manage connections
   - if connection fails don't keep it around
   - On execute if connections exist allow them to choose or create a new one

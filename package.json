@@ -9,6 +9,13 @@
   "engines": {
     "atom": ">0.50.0"
   },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
   "dependencies": {
     "mssql": "^0.5.3",
     "pg": "^4.3.0",
