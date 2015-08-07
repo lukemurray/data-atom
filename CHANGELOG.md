@@ -1,3 +1,7 @@
+## 0.8.0 -
+* Upgrade MS SQL Server library
+* Fix various issues connecting and executing queries against MS SQL Server
+
 ## 0.7.0 -
 * Multiple queries will now show each result data or message separately in the result view instead of a weird merged table (PostgreSQL only currently)
 * You can now select the database to execute against after adding a connection
