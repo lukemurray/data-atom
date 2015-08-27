@@ -1,3 +1,11 @@
+## 0.8.2 -
+* Fix issue where DB type would not change on URI change
+* Fix issue where you could not use '@' in a password (or any part of the URI)
+* DB Port is now correctly used if it differs from the default
+
+## 0.8.1 -
+* Fix a reference to node-postgres library
+
 ## 0.8.0 -
 * Upgrade MS SQL Server library
 * Fix various issues connecting and executing queries against MS SQL Server
