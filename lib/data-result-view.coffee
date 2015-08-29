@@ -4,10 +4,12 @@ module.exports =
 class DataResultView extends View
    @content: ->
       @div class: 'scrollable', =>
-         @div outlet: 'resultArea'
-         @span outlet: 'message'
+         @div class: 'native-key-bindings', outlet: 'resultArea'
+         @span class: 'native-key-bindings', outlet: 'message'
 
    initialize: ->
+     @resultArea.attr('tabindex', -1)
+     @message.attr('tabindex', -1)
 
    updateHeight: (height) ->
       @height(height)
@@ -24,7 +26,7 @@ class DataResultView extends View
 
       for result in results
         if result.message
-          @resultArea.append('<span>' + result.message + '</span>')
+          @resultArea.append('<span class="text-selectable">' + result.message + '</span>')
           @resultArea.append('<br />')
           @resultArea.append('<br />')
         else
@@ -45,7 +47,7 @@ class DataResultView extends View
             rowEle.append('<td>' + cnt++ + '</td>')
             body.append(rowEle)
             for data in row
-              rowEle.append('<td>' + data + '</td>')
+              rowEle.append('<td class="text-selectable">' + data + '</td>')
             #@resultBody.append('</tr>')
           @resultArea.append(table)
           @resultArea.append('<br />')

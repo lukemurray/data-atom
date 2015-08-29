@@ -5,7 +5,7 @@
 @import "ui-variables";
 
 .status-bar-data-atom {
-  
+
 }
 
 .btn-padding-left {
@@ -37,7 +37,6 @@
   height: 100%;
   overflow: hidden;
   cursor: default;
-  -webkit-user-select: none;
   min-height: 100px;
   height: 200px;
   z-index: 2;
@@ -54,6 +53,11 @@
 
   .scrollable {
     overflow: scroll;
+  }
+
+  .text-selectable {
+    cursor: text;
+    -webkit-user-select: all;
   }
 
   tr {
@@ -93,6 +97,10 @@
   }
 
   .results-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+
     select {
       width: 240px;
       margin-left: 10px;

@@ -1,3 +1,6 @@
+## 0.9.0 -
+* You can now select results for copying
+
 ## 0.8.2 -
 * Fix issue where DB type would not change on URI change
 * Fix issue where you could not use '@' in a password (or any part of the URI)

@@ -4,7 +4,7 @@
 module.exports =
 class DataAtomView extends View
   @content: ->
-    @div class: 'panel-heading padded heading header-view results-header', =>
+    @header class: 'header results-header', =>
       @span 'Results for connection:', class: 'heading-title', outlet: 'title'
       @select outlet: 'connectionList', class: '', change: 'onConnectionSelected', =>
         @option 'Select connection...', value: '0', disabled: true
