@@ -1,4 +1,4 @@
-## 0.9.0 -
+## 0.8.3 -
 * You can now select results for copying
 
 ## 0.8.2 -
