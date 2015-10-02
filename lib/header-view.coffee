@@ -18,8 +18,11 @@ class DataAtomView extends View
         outlet: 'closeButton'
         click: 'close'
       @div class: 'query-string', =>
+        @span 'Query to execute:'
         @input outlet:'queryInput'
-        @button 'Execute', class: 'btn btn-default', click: 'onExecuteQuery', outlet: 'executeBtn'
+        @button 'Execute Query', class: 'btn btn-default', click: 'onExecuteQuery', outlet: 'executeBtn'
+      @div class: 'file-executed', outlet: 'fileExecuted', =>
+        @span 'Results of ?'
 
   close: ->
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:toggle-results-view')
@@ -30,6 +33,7 @@ class DataAtomView extends View
     @disconnectBtn.disable()
     @queryInput.disable()
     @executeBtn.disable()
+    @fileExecuted.hide()
 
   onDatabaseSelected: (e) ->
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:connection-changed')
@@ -98,4 +102,4 @@ class DataAtomView extends View
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:disconnect')
 
   onExecuteQuery: ->
-    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:execute')
+    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:execute-query')
