@@ -39,7 +39,7 @@ class DataAtomView extends View
       @isShowing = false
     else
       atom.workspace.addBottomPanel(item: this)
-      @resultView.updateHeight(@height() - @headerView.height() - @headerHeight) if @resultView
+      @resultView.updateHeight(@height() - @headerView.height()) if @resultView
       @isShowing = true
 
   resizeStarted: =>
@@ -53,7 +53,7 @@ class DataAtomView extends View
   resizeResultsView: ({pageY}) =>
     height = $(document.body).height() - pageY - @headerHeight
     @height(height)
-    @resultView.updateHeight(@height() - @headerView.height() - @headerHeight) if @resultView
+    @resultView.updateHeight(@height() - @headerView.height()) if @resultView
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:result-view-height-changed')
 
   clear: ->
@@ -65,7 +65,7 @@ class DataAtomView extends View
     @headerView.addDbNames(dbNames);
     @headerView.setSelectedDbName(selectedDb);
     @height(height);
-    @resultView.updateHeight(@height() - @headerView.height() - @headerHeight) if @resultView
+    @resultView.updateHeight(@height() - @headerView.height()) if @resultView
 
   setMessage: (message) ->
     @resultView.setMessage(message)

@@ -17,14 +17,19 @@ class DataAtomView extends View
         class: 'heading-close icon-remove-close pull-right'
         outlet: 'closeButton'
         click: 'close'
+      @div class: 'query-string', =>
+        @input outlet:'queryInput'
+        @button 'Execute', class: 'btn btn-default', click: 'onExecuteQuery', outlet: 'executeBtn'
 
   close: ->
-    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:toggle-results-view');
+    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:toggle-results-view')
 
   initialize: ->
     @connectionList.disable()
     @databaseList.disable()
     @disconnectBtn.disable()
+    @queryInput.disable()
+    @executeBtn.disable()
 
   onDatabaseSelected: (e) ->
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:connection-changed')
@@ -45,7 +50,14 @@ class DataAtomView extends View
 
     for name in names
       @databaseList.append('<option value="' + name + '">' + name + '</option>')
-    @databaseList.enable()
+    if names.length > 1
+      @databaseList.enable()
+      @queryInput.enable()
+      @executeBtn.enable()
+    else
+      @databaseList.disable()
+      @queryInput.disable()
+      @executeBtn.disable()
 
   setSelectedDbName: (name) ->
     @databaseList.children("option[value='" + name + "']").prop('selected', true)
@@ -54,13 +66,21 @@ class DataAtomView extends View
     @connectionList.children("option[value='" + connectionName + "']").prop('selected', true)
     if connectionName == '0'
       @databaseList.disable()
+      @queryInput.disable()
+      @executeBtn.disable()
       @setSelectedDbName(connectionName)
+
+  setQuery: (query) ->
+    @queryInput.val(query)
 
   getSelectedConnection: ->
     @connectionList.children(":selected").attr('value')
 
   getSelectedDatabase: ->
     @databaseList.children(':selected').attr('value')
+
+  getQuery: ->
+    @queryInput.val()
 
   onNewConnection: ->
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:new-connection')
@@ -72,5 +92,10 @@ class DataAtomView extends View
     unless @connectionList.children().length > 1
       @disconnectBtn.disable()
       @connectionList.disable()
+      @queryInput.disable()
+      @executeBtn.disable()
     @connectionList.children("option[value='0']").prop('selected', true)
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:disconnect')
+
+  onExecuteQuery: ->
+    atom.commands.dispatch(atom.views.getView(atom.workspace), 'data-atom:execute')
