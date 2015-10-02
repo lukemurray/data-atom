@@ -12,6 +12,7 @@
       'submenu': [
         { 'label': 'Execute', 'command': 'data-atom:execute' }
         { 'label': 'Toggle results view', 'command': 'data-atom:toggle-view' }
+        { 'label': 'Edit connections', 'command': 'data-atom:edit-connections' }
       ]
     ]
   }
