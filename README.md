@@ -16,6 +16,20 @@ Note: This is an early version... Feel free to open issues or make pull requests
   - Different connections per editor view
 - Easily change the database to execute against
 - Save connections for easily connecting later
+  - Run command "Data Atom: Edit Connections" see below for example format
+
+```
+[
+  {
+    name: 'local postgresql'
+    protocol: 'postgresql'
+    user: 'luke'
+    password: 'pass'
+    server: 'localhost'
+    database: 'mydb'
+  }
+]
+```
 
 ##Usage
 - `F5` or 'Data Atom: Execute' command

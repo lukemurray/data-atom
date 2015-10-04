@@ -11,9 +11,6 @@ class DataResultView extends View
      @resultArea.attr('tabindex', -1)
      @message.attr('tabindex', -1)
 
-   updateHeight: (height) ->
-      @height(height)
-
    clear: ->
       @message.empty()
       @resultArea.empty()

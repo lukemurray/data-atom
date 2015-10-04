@@ -42,27 +42,28 @@
 }
 
 .data-atom-panel {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
   cursor: default;
   min-height: 100px;
   height: 200px;
   z-index: 2;
   margin: 0;
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 
   .resize-handle {
     position: absolute;
     width: 100%;
-    height: 10px;
-    top: -5px;
+    height: 8px;
+    top: -4px;
     cursor: row-resize;
     z-index: 3;
   }
 
   .scrollable {
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
   }
 
   .text-selectable {
@@ -110,65 +111,87 @@
     background-color: @panel-heading-background-color;
   }
 
-  .results-header {
+  .query-input {
+    flex-shrink: 0;
+  }
+
+  .toolbar {
+    flex-shrink: 0;
+    padding-top: 5px;
+  }
+
+  select {
+    width: 240px;
+    margin-left: 10px;
+    color: @text-color;
+    border-color: @panel-heading-background-color;
+    background-color: lighten(@overlay-background-color, 10%);
+    height: 24px;
+  }
+
+  .db-select {
+    width: 170px;
+    margin-right: 10px;
+  }
+
+  button {
+    margin-right: 0;
+    top: -1px;
+    height: 27px;
+  }
+
+  .btn-query-toggle-up::before {
+    font-family: 'FontAwesome';
+    content: "\f062";
+    margin-right: -1px;
+  }
+
+  .btn-query-toggle-down::before {
+    font-family: 'FontAwesome';
+    content: "\f063";
+    margin-right: -1px;
+  }
+
+  .btn-connect::before {
+    font-family: 'FontAwesome';
+    content: "\f067";
+    margin-right: 0;
+  }
+  .btn-connect {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  .btn-disconnect::before {
+    font-family: 'FontAwesome';
+    content: "\f068";
+  }
+  .btn-disconnect {
+    margin-right: 0;
+    margin-right: -1px;
+  }
+
+  .db-label {
+    padding-left: 8px;
+  }
+
+  .query-section {
     padding-top: 5px;
     padding-bottom: 5px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
 
-    select {
-      width: 240px;
-      margin-left: 10px;
-      color: @text-color;
-      border-color: @panel-heading-background-color;
-      background-color: lighten(@overlay-background-color, 10%);
-      height: 24px;
-    }
+  .results-section {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 
-    .db-select {
-      width: 170px;
-      margin-right: 10px;
-    }
-
-    button {
-      margin-right: 0;
-      top: -1px;
-      height: 27px;
-    }
-
-    .btn-query-toggle-up::before {
-      font-family: 'FontAwesome';
-      content: "\f062";
-      margin-right: -1px;
-    }
-
-    .btn-query-toggle-down::before {
-      font-family: 'FontAwesome';
-      content: "\f063";
-      margin-right: -1px;
-    }
-
-    .btn-connect::before {
-      font-family: 'FontAwesome';
-      content: "\f067";
-      margin-right: 0;
-    }
-    .btn-connect {
-      margin-left: 10px;
-      margin-right: 0;
-    }
-    .btn-disconnect::before {
-      font-family: 'FontAwesome';
-      content: "\f068";
-    }
-    .btn-disconnect {
-      margin-right: 0;
-      margin-right: -1px;
-    }
-
-    .db-label {
-      padding-left: 8px;
-    }
-
-    .query-input {
+    .heading-title {
+      flex-shrink: 0;
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
   }
 }
