@@ -28,7 +28,7 @@ describe('NewConnectionDialog', () => {
     beforeEach(() => {
       view = new NewConnectionDialog(() => {});
       view.show();
-      view.url.isFocused = true; // hack!
+      view.url.focus();
       modifiedDelay = view.url.getModel().getBuffer().stoppedChangingDelay;
     });
 
@@ -84,49 +84,49 @@ describe('NewConnectionDialog', () => {
     beforeEach(() => {
       view = new NewConnectionDialog(() => {});
       view.show();
-      modifiedDelay = view.url.getModel().getBuffer().stoppedChangingDelay + 10;
+      modifiedDelay = view.url.getModel().getBuffer().stoppedChangingDelay + 100;
     });
 
     it("reads the server value", () => {
+      view.dbServer.focus();
       view.dbServer.getModel().setText('my-server');
-      advanceClock(modifiedDelay);
       expect(view.url.getModel().getText()).toEqual('postgresql://my-server/');
     });
 
     it("reads the port value", () => {
+      view.dbServer.focus();
       view.dbServer.getModel().setText('my-server');
       view.dbPort.getModel().setText('1122');
-      advanceClock(modifiedDelay);
       expect(view.url.getModel().getText()).toEqual('postgresql://my-server:1122/');
     });
 
     it("reads the username & password value", () => {
+      view.dbServer.focus();
       view.dbServer.getModel().setText('my-server');
       view.dbUser.getModel().setText('admin');
       view.dbPassword.getModel().setText('badPass');
-      advanceClock(modifiedDelay);
       expect(view.url.getModel().getText()).toEqual('postgresql://admin:badPass@my-server/');
     });
 
     it("reads the db name value", () => {
+      view.dbServer.focus();
       view.dbServer.getModel().setText('my-server');
       view.dbName.getModel().setText('places');
-      advanceClock(modifiedDelay);
       expect(view.url.getModel().getText()).toEqual('postgresql://my-server/places');
     });
 
     it("reads the options", () => {
+      view.dbServer.focus();
       view.dbOptions.getModel().setText('ssl=true');
       view.dbServer.getModel().setText('places');
-      advanceClock(modifiedDelay);
-      expect(view.url.getModel().getText()).toEqual('postgresql://places/?ssl=true');
+      expect(view.url.getModel().getText()).toEqual('postgresql://places/?ssl%3Dtrue');
     });
 
     it("reads multiple options", () => {
+      view.dbServer.focus();
       view.dbOptions.getModel().setText('ssl=true, option=val');
       view.dbServer.getModel().setText('places');
-      advanceClock(modifiedDelay);
-      expect(view.url.getModel().getText()).toEqual('postgresql://places/?ssl=true&option=val');
+      expect(view.url.getModel().getText()).toEqual('postgresql://places/?ssl%3Dtrue&option%3Dval');
     });
   });
 });
