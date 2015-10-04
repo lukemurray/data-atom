@@ -4,6 +4,7 @@
 * New option in the toolbar to toggle between executing the active editor's content or Data Atom's own query content
 * New command to edit you list of saved connections
 * You can now load a saved connection in the new connection dialog
+* ESC will close the new conncetion dialog
 
 ## 0.8.3 -
 * You can now select results for copying
