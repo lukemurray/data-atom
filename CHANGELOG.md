@@ -1,3 +1,6 @@
+## 0.9.1 -
+* Handle error if not authentication details provided in connection
+
 ## 0.9.0 -
 * `CMD`+`CTRL`+`Q` will open a query editor within Data Atom allowing you execute queries from any active editor
 * New connection and disconnect buttons moved to the right and changed to icons
