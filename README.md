@@ -15,6 +15,7 @@ Note: This is an early version... Feel free to open issues or make pull requests
   - Separate results for each file
   - Different connections per editor view
 - Easily change the database to execute against
+- Save connections for easily connecting later
 
 ##Usage
 - `F5` or 'Data Atom: Execute' command

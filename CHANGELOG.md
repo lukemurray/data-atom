@@ -2,6 +2,8 @@
 * `CMD`+`CTRL`+`Q` will open a query editor within Data Atom allowing you execute queries from any active editor
 * New connection and disconnect buttons moved to the right and changed to icons
 * New option in the toolbar to toggle between executing the active editor's content or Data Atom's own query content
+* New command to edit you list of saved connections
+* You can now load a saved connection in the new connection dialog
 
 ## 0.8.3 -
 * You can now select results for copying

@@ -8,7 +8,6 @@ describe('NewConnectionDialog', () => {
   beforeEach(() => {
     var workspaceElement = atom.views.getView(atom.workspace);
     jasmine.attachToDOM(workspaceElement);
-    var activationPromise = atom.packages.activatePackage('data-atom');
   });
 
   describe('when calling show and close', () => {
