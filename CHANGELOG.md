@@ -1,3 +1,6 @@
+##  -
+* Fix new connection dialog tab order
+
 ## 0.9.1 -
 * Handle error if not authentication details provided in connection
 
