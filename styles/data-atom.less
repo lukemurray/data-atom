@@ -4,6 +4,11 @@
 // for a full listing of what's available.
 @import "ui-variables";
 
+@font-face {
+  font-family: 'FontAwesome';
+  src: url(atom://data-atom/resources/fontawesome-webfont.woff2) format('woff2');
+}
+
 .status-bar-data-atom {
 
 }
@@ -41,6 +46,7 @@
   height: 200px;
   z-index: 2;
   margin: 0;
+  padding-left: 10px;
 
   .resize-handle {
     position: absolute;
@@ -58,6 +64,10 @@
   .text-selectable {
     cursor: text;
     -webkit-user-select: all;
+  }
+
+  .heading-connection-title {
+    margin-left: 10px;
   }
 
   tr {
@@ -99,7 +109,6 @@
   .results-header {
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 10px;
 
     select {
       width: 240px;
@@ -107,32 +116,52 @@
       color: @text-color;
       border-color: @panel-heading-background-color;
       background-color: lighten(@overlay-background-color, 10%);
+      height: 24px;
     }
 
     .db-select {
       width: 170px;
+      margin-right: 10px;
     }
 
     button {
-      margin-left: 10px;
+      margin-right: 0;
       top: -1px;
+      height: 27px;
+    }
+
+    .btn-query-toggle-up::before {
+      font-family: 'FontAwesome';
+      content: "\f062";
+      margin-right: -1px;
+    }
+
+    .btn-query-toggle-down::before {
+      font-family: 'FontAwesome';
+      content: "\f063";
+      margin-right: -1px;
+    }
+
+    .btn-connect::before {
+      font-family: 'FontAwesome';
+      content: "\f067";
+      margin-right: 0;
+    }
+    .btn-connect {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+    .btn-disconnect::before {
+      font-family: 'FontAwesome';
+      content: "\f068";
+    }
+    .btn-disconnect {
+      margin-right: 0;
+      margin-right: -1px;
     }
 
     .db-label {
       padding-left: 8px;
-    }
-
-    .query-string {
-      margin: 10px 0;
-
-      input {
-        width: 46%;
-        line-height: 2em;
-        border: none;
-        border-radius: 0.25em;
-        background-color: #43484d;
-        padding: 0.2em 1em;
-      }
     }
   }
 }
