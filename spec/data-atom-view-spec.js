@@ -52,12 +52,12 @@ describe("DataAtomView", () => {
     it('it shows the query input', () => {
       view.show();
       view.useEditorAsQuerySource(false);
-      expect($(view.queryInput).css('display')).toEqual('block');
+      expect($(view.querySection).css('display')).toEqual('block');
     });
     it('it hides the query input', () => {
       view.show();
       view.useEditorAsQuerySource(true);
-      expect($(view.queryInput).css('display')).toEqual('none');
+      expect($(view.querySection).css('display')).toEqual('none');
     });
 
     // not sure how to set up the active editor
