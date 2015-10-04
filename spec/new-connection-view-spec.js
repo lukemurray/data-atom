@@ -78,13 +78,11 @@ describe('NewConnectionDialog', () => {
   });
 
   describe("when modifying values other than URL", () => {
-    var modifiedDelay = null;
     var view = null;
 
     beforeEach(() => {
       view = new NewConnectionDialog(() => {});
       view.show();
-      modifiedDelay = view.url.getModel().getBuffer().stoppedChangingDelay + 100;
     });
 
     it("reads the server value", () => {
