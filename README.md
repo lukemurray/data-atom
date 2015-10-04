@@ -22,9 +22,11 @@ Note: This is an early version... Feel free to open issues or make pull requests
   - Only executes the selected text if there is any
 - `CMD`+`ALT`+`R` or 'Data Atom: Toggle Results View' command
   - Toggle results view
-- `CMD`+`CTRL`+`Q`, 'Data Atom: Toggle Query Source' command or the button right of 'Execute' on the toolbar
+- 'Data Atom: Toggle Query Source' command or the button right of 'Execute' on the toolbar
   - Toggle the source of the query to execute between the active editor content and Data Atom's own query editor
   - Allows you to easily work with SQL files in the main editor or quickly execute queries while working in any file type
+- `CMD`+`CTRL`+`Q`
+  - Toggle to use Data Atom's query input and focus to the keyboard there
 - Check the execution time in the right of the status bar
 
 ##Todo
