@@ -1,5 +1,5 @@
 # Data Atom package
-
+[![Build Status](https://travis-ci.org/lukemurray/data-atom.svg?branch=master)](https://travis-ci.org/lukemurray/data-atom)
 Data Atom allows you to build and run queries against your favorite databases and visualize the results, all from within Atom. The plan is to build it out with more data management support.
 
 Note: This is an early version... Feel free to open issues or make pull requests!
