@@ -2,6 +2,7 @@
 * Fix: new connection dialog tab order
 * Fix: Remove resize from command list - it is not a command
 * Fix(#20): Smarter layout of results and scroll bars are now seen
+* fix: issue where query source toggle doesn't work the first time
 
 ## 0.9.1 -
 * Handle error if not authentication details provided in connection
