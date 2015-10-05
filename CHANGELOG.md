@@ -1,3 +1,7 @@
+## 0.9.3 -
+* Fix(#22, #23) a few issues with changing connections and selecting the active database
+* Fix: disable controls while executing
+
 ## 0.9.2 -
 * Fix: new connection dialog tab order
 * Fix: Remove resize from command list - it is not a command

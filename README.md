@@ -49,6 +49,7 @@ Note: This is an early version... Feel free to open issues or make pull requests
 - Manage connections
   - if connection fails don't keep it around
   - don't allow the same connection
+  - changing connection dosn't build DB list
   - save connections between uses
 - Add support other DBs
   - MySql
