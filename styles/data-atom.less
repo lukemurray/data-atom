@@ -140,34 +140,57 @@
     height: 27px;
   }
 
-  .btn-query-toggle-up::before {
+  button[disabled]:hover {
+    border-color: @base-border-color;
+  }
+
+  button.btn-query-execute {
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+  }
+
+  button.btn-query-toggle-up::before {
     font-family: 'FontAwesome';
     content: "\f062";
-    margin-right: -1px;
   }
 
-  .btn-query-toggle-down::before {
+  button.btn-query-toggle-down::before {
     font-family: 'FontAwesome';
-    content: "\f063";
-    margin-right: -1px;
+    content: '\f063';
+  }
+  button.btn-query-toggle {
+    border-radius: 0 3px 3px 0;
   }
 
-  .btn-connect::before {
+  button.btn-query-cancel::before {
+    font-family: 'FontAwesome';
+    content: '\f05e';
+    margin-right: -1px;
+  }
+  button.btn-query-cancel {
+    border-right: none;
+    border-radius: 0;
+  }
+
+  button.btn-connect::before {
     font-family: 'FontAwesome';
     content: "\f067";
-    margin-right: 0;
   }
-  .btn-connect {
+  button.btn-connect {
     margin-left: 10px;
     margin-right: 0;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
   }
-  .btn-disconnect::before {
+  button.btn-disconnect::before {
     font-family: 'FontAwesome';
     content: "\f068";
   }
-  .btn-disconnect {
+  button.btn-disconnect {
     margin-right: 0;
     margin-right: -1px;
+    border-radius: 0 3px 3px 0;
+
   }
 
   .db-label {

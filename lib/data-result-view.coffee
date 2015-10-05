@@ -21,6 +21,9 @@ class DataResultView extends View
 
       @resultArea.empty()
 
+      if (!results)
+        return;
+
       for result in results
         if result.message
           @resultArea.append('<span class="text-selectable">' + result.message + '</span>')
@@ -45,7 +48,6 @@ class DataResultView extends View
             body.append(rowEle)
             for data in row
               rowEle.append('<td class="text-selectable">' + data + '</td>')
-            #@resultBody.append('</tr>')
           @resultArea.append(table)
           @resultArea.append('<br />')
 

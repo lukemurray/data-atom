@@ -1,4 +1,5 @@
-## 0. -
+## 0.10.0 -
+* Add the ability to cancel a running query
 * If the file is unsaved but has SQL syntax it will be used as the query source instead of the data atom query
 * Do not create view state for editors that we may not need it for
 * Clean up view states on editor close
