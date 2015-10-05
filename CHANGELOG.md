@@ -1,3 +1,6 @@
+## 0. -
+* If the file is unsaved but has SQL syntax it will be used as the query source instead of the data atom query
+
 ## 0.9.3 -
 * Fix(#22, #23) a few issues with changing connections and selecting the active database
 * Fix: disable controls while executing
