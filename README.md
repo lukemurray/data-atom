@@ -44,15 +44,15 @@ Note: This is an early version... Feel free to open issues or make pull requests
   - Toggle to use Data Atom's query input and focus to the keyboard there
 - Check the execution time in the right of the status bar
 
-##Todo
-- Replace grid with something better
-- Manage connections
-  - if connection fails don't keep it around
-  - don't allow the same connection
-  - changing connection dosn't build DB list
-  - save connections between uses
-- Add support other DBs
+##The Random TODO list
+- Replace grid with something better to allow row selection, column selection etc.
+- Enhance manage connections
+  - If connection fails don't keep it around
+  - Save connections between uses
+- Add support for other database systems - looking for PRs for these as I don't currently use them
   - MySql
   - Mongo DB
+  - Oracle
   - others?
-- Tree view for exploring tables columns etc. ?
+- More database information and visualisation e.g.
+  - Exploring table's columns, relations, etc.
