@@ -13,11 +13,11 @@ describe('NewConnectionDialog', () => {
   describe('when calling show and close', () => {
     it("shows then closes", () => {
       var view = new NewConnectionDialog(() => {});
-      expect($(document).find('.connection-dialog')).not.toExist();
+      expect($(document).find('.data-atom.dialog')).not.toExist();
       view.show();
-      expect($(document).find('.connection-dialog')).toExist();
+      expect($(document).find('.data-atom.dialog')).toExist();
       view.close();
-      expect($(document).find('.connection-dialog')).not.toExist();
+      expect($(document).find('.data-atom.dialog')).not.toExist();
     });
   });
 
