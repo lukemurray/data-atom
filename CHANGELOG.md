@@ -1,3 +1,6 @@
+## 0.11.1
+* Fix issue with fetching table names with SQL Server
+
 ## 0.11.0
 * Add the ability to save the connection from the new connection dialog
 * Clean up all element when closing new connection dialog
