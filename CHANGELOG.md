@@ -1,3 +1,10 @@
+## 0.11.1
+* Fix issue with fetching table names with SQL Server
+
+## 0.11.0
+* Add the ability to save the connection from the new connection dialog
+* Clean up all element when closing new connection dialog
+
 ## 0.10.0 -
 * Add the ability to cancel a running query
 * If the file is unsaved but has SQL syntax it will be used as the query source instead of the data atom query
