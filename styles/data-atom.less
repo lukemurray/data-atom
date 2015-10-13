@@ -224,3 +224,122 @@
     }
   }
 }
+
+.data-details-panel {
+  min-width: 100px;
+  width: 250px;
+  height: 100%;
+  overflow: scroll;
+
+  .resize-handle {
+    float: right;
+    width: 8px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 3;
+
+    &.right {
+      float: left;
+    }
+  }
+
+  .no-connection {
+    font-size: 1.3em;
+
+    .hidden {
+      display: none;
+    }
+  }
+
+  .db-list {
+    list-style: none;
+    overflow: scroll;
+    overflow-x: scroll;
+
+    .db {
+      font-size: 1.3em;
+
+      div.db-name {
+        display: inline;
+
+        &::before {
+          font-family: 'FontAwesome';
+          content: '\f1c0';
+          margin-right: 10px;
+        }
+      }
+
+      &.collapsed {
+        .table-list {
+          display:none;
+        }
+
+        &::before {
+          font-family: 'FontAwesome';
+          content: '\f105';
+          margin-right: 10px;
+        }
+      }
+
+      &.expanded {
+        .table-list {
+          list-style: none;
+
+          .tbl {
+            div.table-name {
+              display: inline;
+
+              &::before {
+                font-family: 'FontAwesome';
+                content: '\f0ce';
+                margin-right: 10px;
+              }
+            }
+
+            &.collapsed {
+              .column-list {
+                display: none;
+              }
+
+              &::before {
+                font-family: 'FontAwesome';
+                content: '\f105';
+                margin-right: 10px;
+              }
+            }
+
+            &.expanded {
+              .column-list {
+                list-style: none;
+
+                .col {
+                  div.column-name {
+                    display: inline;
+
+                    &::before {
+                      font-family: 'FontAwesome';
+                      content: '\f0db';
+                      margin-right: 10px;
+                    }
+                  }
+                }
+              }
+
+              &::before {
+                font-family: 'FontAwesome';
+                content: '\f107';
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+
+        &::before {
+          font-family: 'FontAwesome';
+          content: '\f107';
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
   'cmd-alt-r': 'data-atom:toggle-results-view'
+  'ctrl-shift-d': 'data-atom:toggle-details-view'
   'cmd-alt-c': 'data-atom:new-connection'
   'cmd-ctrl-q': 'data-atom:new-query'
   'f5': 'data-atom:execute'
