@@ -225,11 +225,31 @@
   }
 }
 
+@treePadding: 17px;
+
 .data-details-panel {
   min-width: 100px;
   width: 250px;
   height: 100%;
   overflow: scroll;
+
+  li {
+    cursor: default;
+  }
+
+  .tree-icon {
+    font-family: 'FontAwesome';
+    margin-right: 10px;
+    font-size: 1.3em;
+  }
+
+  .chevron {
+    font-family: 'FontAwesome';
+    width: 6px;
+    margin-right: 10px;
+    font-size: 1em;
+    display: inline-block;
+  }
 
   .resize-handle {
     float: right;
@@ -255,6 +275,7 @@
     list-style: none;
     overflow: scroll;
     overflow-x: scroll;
+    padding-top: 5px;
 
     .db {
       font-size: 1em;
@@ -263,21 +284,19 @@
         display: inline;
 
         &::before {
-          font-family: 'FontAwesome';
+          .tree-icon;
           content: '\f1c0';
-          margin-right: 10px;
         }
       }
 
       &.collapsed {
         .table-list {
-          display:none;
+          display: none;
         }
 
         &::before {
-          font-family: 'FontAwesome';
+          .chevron;
           content: '\f105';
-          margin-right: 10px;
         }
       }
 
@@ -286,13 +305,13 @@
           list-style: none;
 
           .tbl {
+            padding-left: @treePadding;
             div.table-name {
               display: inline;
 
               &::before {
-                font-family: 'FontAwesome';
+                .tree-icon;
                 content: '\f0ce';
-                margin-right: 10px;
               }
             }
 
@@ -302,9 +321,8 @@
               }
 
               &::before {
-                font-family: 'FontAwesome';
+                .chevron;
                 content: '\f105';
-                margin-right: 10px;
               }
             }
 
@@ -317,27 +335,24 @@
                     display: inline;
 
                     &::before {
-                      font-family: 'FontAwesome';
+                      .tree-icon;
                       content: '\f0db';
-                      margin-right: 10px;
                     }
                   }
                 }
               }
 
               &::before {
-                font-family: 'FontAwesome';
+                .chevron;
                 content: '\f107';
-                margin-right: 10px;
               }
             }
           }
         }
 
         &::before {
-          font-family: 'FontAwesome';
+          .chevron;
           content: '\f107';
-          margin-right: 10px;
         }
       }
     }
