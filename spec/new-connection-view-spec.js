@@ -2,7 +2,7 @@
 
 import {$} from 'atom-space-pen-views';
 
-import NewConnectionDialog from '../lib/new-connection-dialog';
+import NewConnectionDialog from '../lib/views/new-connection-dialog';
 
 describe('NewConnectionDialog', () => {
   beforeEach(() => {

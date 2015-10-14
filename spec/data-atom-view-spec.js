@@ -3,7 +3,7 @@
 import {$} from 'atom-space-pen-views';
 import {Workspace} from 'atom';
 
-import DataAtomView from '../lib/data-atom-view';
+import DataAtomView from '../lib/views/data-atom-view';
 
 describe("DataAtomView", () => {
   var workspaceElement = null;
