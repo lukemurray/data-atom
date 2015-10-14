@@ -10,6 +10,7 @@
     'submenu': [
       'label': 'Data Atom'
       'submenu': [
+        { 'label': 'New Connection...', 'command': 'data-atom:new-connection' }
         { 'label': 'Execute', 'command': 'data-atom:execute' }
         { 'label': 'Toggle results view', 'command': 'data-atom:toggle-view' }
         { 'label': 'Toggle details view', 'command': 'data-atom:toggle-details-view' }
