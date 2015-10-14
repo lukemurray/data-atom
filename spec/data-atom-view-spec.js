@@ -1,9 +1,9 @@
 "use babel";
 
-var {$} = require('atom-space-pen-views');
-var {Workspace} = require('atom');
+import {$} from 'atom-space-pen-views';
+import {Workspace} from 'atom';
 
-var DataAtomView = require('../lib/data-atom-view');
+import DataAtomView from '../lib/data-atom-view';
 
 describe("DataAtomView", () => {
   var workspaceElement = null;

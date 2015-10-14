@@ -1,8 +1,8 @@
 "use babel";
 
-var {$} = require('atom-space-pen-views');
+import {$} from 'atom-space-pen-views';
 
-var NewConnectionDialog = require('../lib/new-connection-dialog');
+import NewConnectionDialog from '../lib/new-connection-dialog';
 
 describe('NewConnectionDialog', () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
 "use babel";
 
-var DataAtom = require('../lib/data-atom');
+import DataAtom from '../lib/data-atom';
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
