@@ -1,3 +1,7 @@
+## 0.12.0
+* Fix(#30) exception when you open a data view or execute outside of an editor
+* Added a details view for the active connection. Currently it lists out the tables and columns
+
 ## 0.11.1
 * Fix issue with fetching table names with SQL Server
 
