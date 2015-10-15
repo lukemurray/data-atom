@@ -48,11 +48,10 @@ Note: This is an early version... Feel free to open issues or make pull requests
 - Replace grid with something better to allow row selection, column selection etc.
 - Enhance manage connections
   - If connection fails don't keep it around
-  - Save connections between uses
 - Add support for other database systems - looking for PRs for these as I don't currently use them
   - MySql
   - Mongo DB
   - Oracle
   - others?
 - More database information and visualisation e.g.
-  - Exploring table's columns, relations, etc.
+  - Exploring relations, views, etc.
