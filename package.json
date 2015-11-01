@@ -16,6 +16,13 @@
       }
     }
   },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    }
+  },
   "dependencies": {
     "mssql": "^2.2.1",
     "pg": "git+https://github.com/lukemurray/node-postgres#master",
