@@ -12,8 +12,5 @@
   'alt-shift-d': 'data-atom:toggle-details-view'
   'f5': 'data-atom:execute'
 
-'.platform-darwin':
-  'atom-workspace':
+'.platform-darwin atom-workspace':
     'cmd-alt-r': 'data-atom:toggle-results-view'
-    'cmd-alt-d': 'data-atom:toggle-details-view'
-    'f5': 'data-atom:execute'
