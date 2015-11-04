@@ -6,10 +6,14 @@
 # the root workspace element.
 
 # For more detailed documentation see
-# https://atom.io/docs/latest/advanced/keymaps
+# https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'cmd-alt-r': 'data-atom:toggle-results-view'
-  'ctrl-shift-d': 'data-atom:toggle-details-view'
-  'cmd-alt-c': 'data-atom:new-connection'
-  'cmd-ctrl-q': 'data-atom:new-query'
+  'alt-shift-r': 'data-atom:toggle-results-view'
+  'alt-shift-d': 'data-atom:toggle-details-view'
   'f5': 'data-atom:execute'
+
+'.platform-darwin':
+  'atom-workspace':
+    'cmd-alt-r': 'data-atom:toggle-results-view'
+    'cmd-alt-d': 'data-atom:toggle-details-view'
+    'f5': 'data-atom:execute'
