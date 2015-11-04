@@ -1,6 +1,7 @@
 ## 0.13.0
 * Support autocomplete for table and column names for both MS SQL Server and PostgreSQL
 * Update keyboard shortcuts for non mac users
+* Some views have been rewritten using Etch - let me know if there is anything broken
 
 ## 0.12.0
 * Fix(#30) exception when you open a data view or execute outside of an editor
