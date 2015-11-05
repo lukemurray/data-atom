@@ -88,14 +88,14 @@ describe('NewConnectionDialog', () => {
     it("reads the server value", () => {
       view.refs.dbServer.focus();
       view.refs.dbServer.getModel().setText('my-server');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server/');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server');
     });
 
     it("reads the port value", () => {
       view.refs.dbServer.focus();
       view.refs.dbServer.getModel().setText('my-server');
       view.refs.dbPort.getModel().setText('1122');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server:1122/');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server:1122');
     });
 
     it("reads the username & password value", () => {
@@ -103,7 +103,7 @@ describe('NewConnectionDialog', () => {
       view.refs.dbServer.getModel().setText('my-server');
       view.refs.dbUser.getModel().setText('admin');
       view.refs.dbPassword.getModel().setText('badPass');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:badPass@my-server/');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:badPass@my-server');
     });
 
     it("reads the db name value", () => {
