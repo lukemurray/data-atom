@@ -114,6 +114,10 @@
     height: 27px;
   }
 
+  button.selected {
+    color: #fff;
+  }
+
   button.btn-query-execute {
     border-right: none;
     border-radius: 3px 0 0 3px;
@@ -245,10 +249,9 @@
 
   .chevron {
     font-family: 'FontAwesome';
-    width: 6px;
     margin-right: 10px;
     font-size: 1em;
-    display: inline-block;
+    display: inline;
   }
 
   .resize-handle {
@@ -264,7 +267,7 @@
   }
 
   .no-connection {
-    padding-top: 5px; 
+    padding-top: 5px;
     font-size: 1.3em;
 
     .hidden {
@@ -272,10 +275,14 @@
     }
   }
 
+  .details-container {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height:100%;
+  }
+
   .db-list {
     list-style: none;
-    overflow: scroll;
-    overflow-x: scroll;
     padding-top: 5px;
 
     .db {
@@ -302,6 +309,7 @@
       }
 
       &.expanded {
+
         .table-list {
           list-style: none;
 
@@ -346,6 +354,7 @@
               &::before {
                 .chevron;
                 content: '\f107';
+                margin-right: 7px;
               }
             }
           }
@@ -354,6 +363,7 @@
         &::before {
           .chevron;
           content: '\f107';
+          margin-right: 7px;
         }
       }
     }
