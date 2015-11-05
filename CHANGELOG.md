@@ -1,6 +1,6 @@
 ## 0.13.0
 * Support autocomplete for table and column names for both MS SQL Server and PostgreSQL
-* Update keyboard shortcuts for non mac users
+* Removed some default keyboard, the user can add their own. Also updated keyboard shortcuts for non mac users
 * Some views have been rewritten using Etch - let me know if there is anything broken
 
 ## 0.12.0
