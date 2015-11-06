@@ -1,3 +1,7 @@
+## 0.14.0
+* Update autocomplete meta-information when the selected databased changes
+* Stringify objects returned by the DB (PostgreSQL JSON objects)
+
 ## 0.13.0
 * Support autocomplete for table and column names for both MS SQL Server and PostgreSQL
 * Removed some default keyboard, the user can add their own. Also updated keyboard shortcuts for non mac users
