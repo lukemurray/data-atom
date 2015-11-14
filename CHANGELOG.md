@@ -1,3 +1,6 @@
+## 0.15.0
+* Table results scroll horizontally independent of each other
+
 ## 0.14.0
 * Update autocomplete meta-information when the selected databased changes
 * Stringify objects returned by the DB (PostgreSQL JSON objects)
