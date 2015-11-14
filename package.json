@@ -24,6 +24,7 @@
     }
   },
   "dependencies": {
+    "mysql": "^2.9.0",
     "mssql": "^2.2.1",
     "pg": "git+https://github.com/lukemurray/node-postgres#master",
     "underscore.string": "^2.3.3",
