@@ -81,6 +81,11 @@
     -webkit-user-select: all;
   }
 
+  .result-message {
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+
   .heading-connection-title {
     margin-left: 10px;
   }
@@ -181,6 +186,7 @@
   }
 
   .results-section {
+    overflow: auto;
     padding-bottom: 3px;
     display: flex;
     flex-direction: column;
@@ -190,6 +196,11 @@
       flex-shrink: 0;
       padding-top: 3px;
       padding-bottom: 3px;
+    }
+
+    .result-table {
+      margin-bottom: 15px;
+      overflow-x: auto;
     }
 
     tr {
