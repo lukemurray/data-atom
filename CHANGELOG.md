@@ -1,3 +1,6 @@
+## 0.15.1
+* Moving to Etch broke some rendering of columns values in results
+
 ## 0.15.0
 * Table results scroll horizontally independent of each other
 * Beta support for MySQL - See issues for known problems
