@@ -1,5 +1,7 @@
 ## 0.15.0
 * Table results scroll horizontally independent of each other
+* Beta support for MySQL - See issues for known problems
+* Clear the results view when executing
 
 ## 0.14.0
 * Update autocomplete meta-information when the selected databased changes
