@@ -71,11 +71,6 @@
     z-index: 3;
   }
 
-  .scrollable {
-    overflow-x: auto;
-    overflow-y: auto;
-  }
-
   .text-selectable {
     cursor: text;
   }
@@ -96,7 +91,7 @@
   .toolbar {
     flex-shrink: 0;
     flex-grow: 0;
-    flex-basis: 35px;
+    flex-basis: 32px;
     padding-top: 5px;
   }
 
@@ -191,6 +186,10 @@
     flex-direction: column;
     flex-grow: 1;
 
+    .scollable {
+      overflow: auto;
+    }
+
     .heading-title {
       flex-shrink: 0;
       padding-top: 3px;
@@ -205,6 +204,10 @@
     tr {
       max-height: 1em;
     }
+
+    // tr:hover {
+    //   color: #fff;
+    // }
 
     tr:nth-child(even) {
       background-color: @base-background-color;
