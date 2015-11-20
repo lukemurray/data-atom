@@ -1,3 +1,6 @@
+## 0.15.2
+* Fix issue where you could not use a # in a password or other URL parts
+
 ## 0.15.1
 * Moving to Etch broke some rendering of columns values in results
 
