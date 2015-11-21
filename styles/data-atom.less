@@ -118,7 +118,7 @@
   }
 
   button.selected {
-    color: #fff;
+    color: @text-color-selected;
   }
 
   button.btn-query-execute {
@@ -209,10 +209,6 @@
       max-height: 1em;
     }
 
-    // tr:hover {
-    //   color: #fff;
-    // }
-
     tr:nth-child(even) {
       background-color: @base-background-color;
 
@@ -244,6 +240,7 @@
 
     td.result-selected, tr.result-selected {
       background-color: @background-color-selected;
+      color: @text-color-selected;
     }
 
     th {
