@@ -1,3 +1,8 @@
+## 0.16.0
+* Fixed copying of text
+* Clicking a cell now selects that cell and you can copy it's contents
+* Clicking the row number cell will select the whole row allowing you copy the entire row
+
 ## 0.15.2
 * Fix issue where you could not use a # in a password or other URL parts
 
