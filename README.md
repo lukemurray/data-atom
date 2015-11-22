@@ -46,6 +46,6 @@ Feel free to open issues or make pull requests!
 ##The Random TODO list
 - Replace grid with something better to allow row selection, column selection etc.
 - Manage saved connections
-- Add support for other database systems. Submit an issue or comment of one already there so we know the priorities
+- Add support for other database systems. Submit an issue or comment on one already there so we know the priorities
 - More database information and visualisation e.g.
   - Exploring relations, views, etc.
