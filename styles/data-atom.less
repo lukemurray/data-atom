@@ -217,11 +217,6 @@
       }
     }
 
-    td:first-child {
-      background-color: @panel-heading-background-color;
-      border-bottom: 1px solid @base-background-color;
-    }
-
     td {
       padding-top: 3px;
       padding-bottom: 3px;
@@ -232,6 +227,11 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       max-width: 500px;
+    }
+
+    td.result-row {
+      background-color: @panel-heading-background-color;
+      border-bottom: 1px solid @base-background-color;
     }
 
     td.result-cell {
