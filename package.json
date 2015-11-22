@@ -28,7 +28,6 @@
     "mssql": "^2.2.1",
     "pg": "git+https://github.com/lukemurray/node-postgres#master",
     "underscore.string": "^2.3.3",
-    "atom-space-pen-views": "^2.0.3",
     "season": "^5.3.0",
     "etch": "^0.1.0",
     "dom-listener": "^0.1.2"
