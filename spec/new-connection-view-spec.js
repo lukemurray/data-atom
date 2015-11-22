@@ -1,8 +1,10 @@
 "use babel";
 
-import {$} from 'atom-space-pen-views';
-
 import NewConnectionDialog from '../lib/views/new-connection-dialog';
+
+function findDataAtomDialog(workspace) {
+  return [].slice.call(workspace.getElementsByTagName('section')).filter(i => i.classList.contains('data-atom') && i.classList.contains('dialog'));
+}
 
 describe('NewConnectionDialog', () => {
   beforeEach(() => {
@@ -13,11 +15,11 @@ describe('NewConnectionDialog', () => {
   describe('when calling show and close', () => {
     it("shows then closes", () => {
       var view = new NewConnectionDialog(() => {});
-      expect($(document).find('.data-atom.dialog')).not.toExist();
+      expect(findDataAtomDialog(document).length).toEqual(0);
       view.show();
-      expect($(document).find('.data-atom.dialog')).toExist();
+      expect(findDataAtomDialog(document).length).toEqual(1);
       view.close();
-      expect($(document).find('.data-atom.dialog')).not.toExist();
+      expect(findDataAtomDialog(document).length).toEqual(0);
     });
   });
 

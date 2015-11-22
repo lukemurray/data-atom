@@ -5,7 +5,6 @@ import {Workspace} from 'atom';
 import DataAtomView from '../lib/views/data-atom-view';
 
 function findDataAtomPanel(workspace) {
-  [].slice.call(workspace.getElementsByTagName('section')).forEach(i => console.log(i.className));
   return [].slice.call(workspace.getElementsByTagName('section')).filter(i => i.classList.contains('data-atom-panel'));
 }
 
