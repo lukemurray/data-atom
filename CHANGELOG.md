@@ -1,3 +1,6 @@
+## 0.18.0
+* Can select whole result table to copy by clicking the top left most cell
+
 ## 0.17.0
 * Can now drag select rows (from the row number) or cells in the results table to copy contents
 
