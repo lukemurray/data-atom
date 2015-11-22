@@ -1,3 +1,6 @@
+## 0.17.0
+* Can now drag select rows (from the row number) or cells in the results table to copy contents
+
 ## 0.16.0
 * Fixed copying of text
 * Clicking a cell now selects that cell and you can copy it's contents
