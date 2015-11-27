@@ -1,3 +1,30 @@
+## 0.17.1
+* Can select whole result table to copy by clicking the top left most cell
+* Fix error when drag select cells into the header
+
+## 0.17.0
+* Can now drag select rows (from the row number) or cells in the results table to copy contents
+
+## 0.16.0
+* Fixed copying of text
+* Clicking a cell now selects that cell and you can copy it's contents
+* Clicking the row number cell will select the whole row allowing you copy the entire row
+
+## 0.15.2
+* Fix issue where you could not use a # in a password or other URL parts
+
+## 0.15.1
+* Moving to Etch broke some rendering of columns values in results
+
+## 0.15.0
+* Table results scroll horizontally independent of each other
+* Beta support for MySQL - See issues for known problems
+* Clear the results view when executing
+
+## 0.14.0
+* Update autocomplete meta-information when the selected databased changes
+* Stringify objects returned by the DB (PostgreSQL JSON objects)
+
 ## 0.13.0
 * Support autocomplete for table and column names for both MS SQL Server and PostgreSQL
 * Removed some default keyboard, the user can add their own. Also updated keyboard shortcuts for non mac users

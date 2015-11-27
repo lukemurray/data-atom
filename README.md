@@ -1,7 +1,7 @@
 # Data Atom package
 [![Build Status](https://travis-ci.org/lukemurray/data-atom.svg?branch=master)](https://travis-ci.org/lukemurray/data-atom)
 
-Data Atom allows you to write and execute queries against your favorite databases and visualize the results, all from within Atom. It supports autocomplete and exploring database information (tables, columns, views, etc.). The plan is to build it out with more data management functionality.
+Data Atom allows you to write and execute queries against your favorite databases (PostgreSQL, MS SQL Server, MySQL) and visualize the results, all from within Atom. It supports autocomplete and exploring database information (tables, columns, views, etc.). The plan is to build it out with more data management functionality.
 
 Feel free to open issues or make pull requests!
 
@@ -10,7 +10,8 @@ Feel free to open issues or make pull requests!
 ##Features
 - Supports
   - PostgreSQL
-  - MS SQL Server
+  - Microsoft SQL Server
+  - MySQL (Beta support, see issues for known problems)
 - Execute custom queries or a whole file
   - Separate results for each file/editor view
   - Different connections per editor view
@@ -45,10 +46,6 @@ Feel free to open issues or make pull requests!
 ##The Random TODO list
 - Replace grid with something better to allow row selection, column selection etc.
 - Manage saved connections
-- Add support for other database systems - looking for PRs for these as I do not currently use them
-  - MySql
-  - Mongo DB
-  - Oracle
-  - others?
+- Add support for other database systems. Submit an issue or comment on one already there so we know the priorities
 - More database information and visualisation e.g.
   - Exploring relations, views, etc.

@@ -1,8 +1,10 @@
 "use babel";
 
-import {$} from 'atom-space-pen-views';
-
 import NewConnectionDialog from '../lib/views/new-connection-dialog';
+
+function findDataAtomDialog(workspace) {
+  return [].slice.call(workspace.getElementsByTagName('section')).filter(i => i.classList.contains('data-atom') && i.classList.contains('dialog'));
+}
 
 describe('NewConnectionDialog', () => {
   beforeEach(() => {
@@ -13,11 +15,11 @@ describe('NewConnectionDialog', () => {
   describe('when calling show and close', () => {
     it("shows then closes", () => {
       var view = new NewConnectionDialog(() => {});
-      expect($(document).find('.data-atom.dialog')).not.toExist();
+      expect(findDataAtomDialog(document).length).toEqual(0);
       view.show();
-      expect($(document).find('.data-atom.dialog')).toExist();
+      expect(findDataAtomDialog(document).length).toEqual(1);
       view.close();
-      expect($(document).find('.data-atom.dialog')).not.toExist();
+      expect(findDataAtomDialog(document).length).toEqual(0);
     });
   });
 
@@ -75,6 +77,14 @@ describe('NewConnectionDialog', () => {
       advanceClock(modifiedDelay);
       expect(view.refs.dbOptions.getModel().getText()).toEqual('o=v, hello=world');
     });
+
+    it("works with hash in pass", () => {
+      expect(view.refs.dbOptions.getModel().getText()).toEqual('');
+      view.refs.url.getModel().setText('postgresql://me:pass#word1@server/myDb');
+      advanceClock(modifiedDelay);
+      expect(view.refs.dbPassword.getModel().getText()).toEqual('pass#word1');
+      expect(view.state.escapedUrl).toEqual('postgresql://me:pass%23word1@server/myDb');
+    });
   });
 
   describe("when modifying values other than URL", () => {
@@ -106,6 +116,15 @@ describe('NewConnectionDialog', () => {
       expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:badPass@my-server');
     });
 
+    it("works with hash in pass", () => {
+      view.refs.dbServer.focus();
+      view.refs.dbServer.getModel().setText('my-server');
+      view.refs.dbUser.getModel().setText('admin');
+      view.refs.dbPassword.getModel().setText('bad#Pass');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:bad#Pass@my-server');
+      expect(view.state.escapedUrl).toEqual('postgresql://admin:bad%23Pass@my-server');
+    });
+
     it("reads the db name value", () => {
       view.refs.dbServer.focus();
       view.refs.dbServer.getModel().setText('my-server');
@@ -117,14 +136,14 @@ describe('NewConnectionDialog', () => {
       view.refs.dbServer.focus();
       view.refs.dbOptions.getModel().setText('ssl=true');
       view.refs.dbServer.getModel().setText('places');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://places/?ssl%3Dtrue');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://places/?ssl=true');
     });
 
     it("reads multiple options", () => {
       view.refs.dbServer.focus();
       view.refs.dbOptions.getModel().setText('ssl=true, option=val');
       view.refs.dbServer.getModel().setText('places');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://places/?ssl%3Dtrue&option%3Dval');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://places/?ssl=true&option=val');
     });
   });
 });

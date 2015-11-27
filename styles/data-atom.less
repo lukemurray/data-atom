@@ -71,14 +71,15 @@
     z-index: 3;
   }
 
-  .scrollable {
-    overflow-x: auto;
-    overflow-y: auto;
-  }
-
   .text-selectable {
     cursor: text;
-    -webkit-user-select: all;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  .result-message {
+    margin-bottom: 15px;
+    display: inline-block;
   }
 
   .heading-connection-title {
@@ -91,6 +92,8 @@
 
   .toolbar {
     flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 32px;
     padding-top: 5px;
   }
 
@@ -115,7 +118,7 @@
   }
 
   button.selected {
-    color: #fff;
+    color: @text-color-selected;
   }
 
   button.btn-query-execute {
@@ -179,16 +182,27 @@
   }
 
   .results-section {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    overflow: auto;
+    padding-bottom: 3px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+
+    .scollable {
+      overflow: auto;
+    }
 
     .heading-title {
       flex-shrink: 0;
       padding-top: 3px;
       padding-bottom: 3px;
+    }
+
+    .result-table {
+      margin-bottom: 15px;
+      overflow-x: auto;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     tr {
@@ -203,11 +217,6 @@
       }
     }
 
-    td:first-child {
-      background-color: @panel-heading-background-color;
-      border-bottom: 1px solid @base-background-color;
-    }
-
     td {
       padding-top: 3px;
       padding-bottom: 3px;
@@ -218,6 +227,24 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       max-width: 500px;
+    }
+
+    td.result-row {
+      background-color: @panel-heading-background-color;
+      border-bottom: 1px solid @base-background-color;
+    }
+
+    td.result-cell {
+
+    }
+
+    td.result-selected, tr.result-selected {
+      background-color: @background-color-selected;
+      color: @text-color-selected;
+    }
+
+    th.result-selected {
+      color: @text-color-selected;
     }
 
     th {

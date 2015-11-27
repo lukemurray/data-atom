@@ -1,46 +1,48 @@
 "use babel";
 
-import {$} from 'atom-space-pen-views';
 import {Workspace} from 'atom';
 
 import DataAtomView from '../lib/views/data-atom-view';
+
+function findDataAtomPanel(workspace) {
+  return [].slice.call(workspace.getElementsByTagName('section')).filter(i => i.classList.contains('data-atom-panel'));
+}
 
 describe("DataAtomView", () => {
   var workspaceElement = null;
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
     jasmine.attachToDOM(workspaceElement);
-    workspaceElement = $(workspaceElement);
   });
 
   describe("when toggling view", () => {
     it("it sets isShowing", () => {
       var view = new DataAtomView();
-      expect(workspaceElement.find('.data-atom-panel')).not.toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
       view.toggleView();
-      expect(workspaceElement.find('.data-atom-panel')).toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
       view.toggleView();
-      expect(workspaceElement.find('.data-atom-panel')).not.toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
     });
   });
 
   describe("when calling show()", () => {
     it("it sets isShowing true", () => {
       var view = new DataAtomView();
-      expect(workspaceElement.find('.data-atom-panel')).not.toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
       view.show();
-      expect(workspaceElement.find('.data-atom-panel')).toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
     });
   });
 
   describe("when calling hide()", () => {
     it("it sets isShowing false", () => {
       var view = new DataAtomView();
-      expect(workspaceElement.find('.data-atom-panel')).not.toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
       view.show();
-      expect(workspaceElement.find('.data-atom-panel')).toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
       view.hide();
-      expect(workspaceElement.find('.data-atom-panel')).not.toExist();
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
     });
   });
 
@@ -52,12 +54,12 @@ describe("DataAtomView", () => {
     it('it shows the query input', () => {
       view.show();
       view.useEditorAsQuerySource(false);
-      expect($(view.querySection).css('display')).toEqual('block');
+      expect(view.querySection.style.display).toEqual('block');
     });
     it('it hides the query input', () => {
       view.show();
       view.useEditorAsQuerySource(true);
-      expect($(view.querySection).css('display')).toEqual('none');
+      expect(view.querySection.style.display).toEqual('none');
     });
 
     // not sure how to set up the active editor
