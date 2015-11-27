@@ -4,6 +4,68 @@
     { 'label': 'Execute', 'command': 'data-atom:execute' }
   ]
 
+  '.data-details-panel .db-name': [
+    { 'label': 'Refresh', 'command': 'data-atom:refresh' }
+    { 'label': 'CREATE Script', 'command': '' }
+    { 'label': 'Delete/Drop', 'command': '' }
+    {'type': 'separator'}
+  ]
+
+  '.data-details-panel .tables .part-name': [
+    { 'label': 'Refresh', 'command': 'data-atom:refresh' }
+    { 'label': 'New Table', 'command': '' }
+    {'type': 'separator'}
+  ]
+
+  '.data-details-panel .tables .tbl .table-name': [
+    { 'label': 'Refresh', 'command': 'data-atom:refresh' }
+    {'type': 'separator'}
+    {
+      'label': 'Scripts'
+      'submenu': [
+        { 'label': 'CREATE Script', 'command': 'data-atom:create-script' }
+        { 'label': 'SELECT Script', 'command': 'data-atom:select-script' }
+        { 'label': 'INSERT Script', 'command': 'data-atom:insert-script' }
+        { 'label': 'UPDATE Script', 'command': 'data-atom:update-script' }
+        { 'label': 'DELETE Script', 'command': 'data-atom:delete-script' }
+      ]
+    }
+    {
+      'label': 'View Data'
+      'submenu': [
+        { 'label': 'View Top 100 Rows', 'command': '' }
+        { 'label': 'View Last 100 Rows', 'command': '' }
+        { 'label': 'View All Rows', 'command': '' }
+      ]
+    }
+    {'type': 'separator'}
+    { 'label': 'Delete/Drop', 'command': '' }
+    {'type': 'separator'}
+  ]
+
+  '.data-details-panel .views .view .view-name': [
+    { 'label': 'Refresh', 'command': 'data-atom:refresh' }
+    {'type': 'separator'}
+    {
+      'label': 'Scripts'
+      'submenu': [
+        { 'label': 'CREATE Script', 'command': '' }
+        { 'label': 'SELECT Script', 'command': 'data-atom:select-script' }
+      ]
+    }
+    {
+      'label': 'View Data'
+      'submenu': [
+        { 'label': 'View Top 100 Rows', 'command': '' }
+        { 'label': 'View Last 100 Rows', 'command': '' }
+        { 'label': 'View All Rows', 'command': '' }
+      ]
+    }
+    {'type': 'separator'}
+    { 'label': 'Delete/Drop', 'command': '' }
+    {'type': 'separator'}
+  ]
+
 'menu': [
   {
     'label': 'Packages'

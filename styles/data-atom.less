@@ -410,4 +410,60 @@
       }
     }
   }
+
+  .view-list {
+    list-style: none;
+
+    .view {
+      padding-left: @treePadding;
+      div.view-name {
+        display: inline;
+
+        &::before {
+          .tree-icon;
+          content: '\f0ce';
+        }
+      }
+
+      &.collapsed {
+        .column-list {
+          display: none;
+        }
+
+        &::before {
+          .chevron;
+          content: '\f105';
+        }
+      }
+
+      &.expanded {
+        .column-list {
+          list-style: none;
+
+          .col {
+            div.column-name {
+              display: inline;
+
+              &::before {
+                .tree-icon;
+                content: '\f0db';
+              }
+            }
+
+            &.pkey, &.fkey {
+              div.column-name::before {
+                content: '\f084';
+              }
+            }
+          }
+        }
+
+        &::before {
+          .chevron;
+          content: '\f107';
+          margin-right: 7px;
+        }
+      }
+    }
+  }
 }
