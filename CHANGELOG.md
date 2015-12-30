@@ -1,3 +1,6 @@
+## 0.17.2
+* Prevent an error when using data atom commands in a non code editor tab (issue #30)
+
 ## 0.17.1
 * Can select whole result table to copy by clicking the top left most cell
 * Fix error when drag select cells into the header
