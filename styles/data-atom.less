@@ -205,6 +205,10 @@
       user-select: none;
     }
 
+    table {
+      table-layout: fixed;
+    }
+
     tr {
       max-height: 1em;
     }
@@ -226,7 +230,6 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      max-width: 500px;
     }
 
     td.result-row {
@@ -235,7 +238,10 @@
     }
 
     td.result-cell {
+    }
 
+    td.cell-width {
+      max-width: 500px;
     }
 
     td.result-selected, tr.result-selected {
@@ -249,9 +255,13 @@
 
     th {
       padding: 7px;
-      border-right: 1px solid @base-background-color;
+      border-right: 1px solid @tool-panel-background-color;
       border-bottom: 1px solid @base-background-color;
       background-color: @panel-heading-background-color;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
