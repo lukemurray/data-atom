@@ -1,6 +1,7 @@
 ## 0.18.0
 * You can now resize columns in the results view
 * Upgraded MS SQL and MySql libraries
+* fix(#47) load DB options in saved connections
 
 ## 0.17.2
 * Prevent an error when using data atom commands in a non code editor tab (issue #30)
