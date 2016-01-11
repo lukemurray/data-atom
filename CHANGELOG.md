@@ -1,3 +1,6 @@
+## 0.18.1
+* fix(#50) Upgrade mssql package to 3.0 as previous version was unpublished from npm
+
 ## 0.18.0
 * You can now resize columns in the results view
 * Upgraded MS SQL and MySql libraries
