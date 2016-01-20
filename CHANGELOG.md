@@ -1,3 +1,14 @@
+## 0.18.1
+* fix(#50) Upgrade mssql package to 3.0 as previous version was unpublished from npm
+
+## 0.18.0
+* You can now resize columns in the results view
+* Upgraded MS SQL and MySql libraries
+* fix(#47) load DB options in saved connections
+
+## 0.17.2
+* Prevent an error when using data atom commands in a non code editor tab (issue #30)
+
 ## 0.17.1
 * Can select whole result table to copy by clicking the top left most cell
 * Fix error when drag select cells into the header
