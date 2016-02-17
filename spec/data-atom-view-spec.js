@@ -46,7 +46,7 @@ describe("DataAtomView", () => {
     });
   });
 
-  describe('When toggling query source', () => {
+  describe('when toggling query source', () => {
     var view;
     beforeEach(() => {
       view = new DataAtomView();
@@ -74,6 +74,22 @@ describe("DataAtomView", () => {
       view.useEditorAsQuerySource(false);
       view.queryEditor.getModel().setText('test2');
       expect(view.getQuery()).toEqual('test2');
+    });
+  });
+
+  describe('when "useQueryAtCursor" option is "true"', () => {
+    var view;
+    beforeEach(() => {
+      view = new DataAtomView();
+      waitsForPromise(() => {
+        return atom.workspace.open('test.sql');
+      });
+    });
+
+    it('it only gets the query at the cursor', () => {
+      var editor = atom.workspace.getActiveTextEditor();
+      editor.insertText('select * from my_table;\nselect* from other_table;\nselect *\nfrom this_table\nwhere 1 = 1;');
+      expect(view.getQuery(true, true)).toEqual('select *\nfrom this_table\nwhere 1 = 1;');
     });
   });
 });
