@@ -9,15 +9,18 @@ describe('SQLMetaProvider', () => {
         dataAtomTables: [
           {
             name: 'test_table',
-            schemaName: 'something'
+            schemaName: 'something',
+            type: 'Table'
           },
           {
             name: 'other_table',
-            schemaName: 'something'
+            schemaName: 'something',
+            type: 'Table'
           },
           {
             name: 'test_table_2',
-            schemaName: 'something'
+            schemaName: 'something',
+            type: 'Table'
           }
       ]};
       let tables = SQLMetaProvider.getTableNames(editor, 'test', 'something');
