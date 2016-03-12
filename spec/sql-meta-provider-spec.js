@@ -6,9 +6,21 @@ describe('SQLMetaProvider', () => {
   describe('Get table names', () => {
     it('filters by prefix', () => {
       let editor = {
-        dataAtomTables: ['test_table', 'other_table', 'test_table_2']
-      }
-      let tables = SQLMetaProvider.getTableNames(editor, 'test');
+        dataAtomTables: [
+          {
+            name: 'test_table',
+            schemaName: 'something'
+          },
+          {
+            name: 'other_table',
+            schemaName: 'something'
+          },
+          {
+            name: 'test_table_2',
+            schemaName: 'something'
+          }
+      ]};
+      let tables = SQLMetaProvider.getTableNames(editor, 'test', 'something');
 
       expect(tables).not.toContain({text: 'other_table', rightLabel: 'Table'});
       expect(tables).toContain({text: 'test_table', rightLabel: 'Table'});
@@ -20,12 +32,20 @@ describe('SQLMetaProvider', () => {
   describe('Get column names', () => {
     it('filters by prefix', () => {
       let editor = {
-        dataAtomColumns: {
-          'test_col': 'varchar',
-          'other_col': 'bool'
-        }
+        dataAtomColumns: [
+          {
+            name: 'test_col',
+            tableName: 'tbl',
+            type: 'varchar'
+          },
+          {
+            name: 'other_col',
+            tableName: 'tbl',
+            type: 'bool'
+          }
+        ]
       };
-      let cols = SQLMetaProvider.getColumnNames(editor, 'test');
+      let cols = SQLMetaProvider.getColumnNames(editor, 'test', 'tbl');
       expect(cols).toContain({text: 'test_col', rightLabel: 'Column', leftLabel: 'varchar'});
       expect(cols.length).toEqual(1);
     });
