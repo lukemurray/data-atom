@@ -1,3 +1,8 @@
+## 0.19.0
+* Add option to execute query at the current cursor
+* Autocomplete now handles table schemata and columns better
+* Fix(53) - Make sure we URL encode the passwords
+
 ## 0.18.1
 * fix(#50) Upgrade mssql package to 3.0 as previous version was unpublished from npm
 
