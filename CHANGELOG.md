@@ -1,3 +1,8 @@
+## 0.20.0
+* Better error messages for PostgreSQL
+* Include Views in autocomplete
+* Change results view to scroll the whole pane instead of individual results. This is a better horizontal scroll experience 
+
 ## 0.19.0
 * Add option to execute query at the current cursor
 * Autocomplete now handles table schemata and columns better
