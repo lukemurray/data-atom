@@ -1,3 +1,6 @@
+## 0.20.2
+* Fix #60 disconnecting MySql connection throws an error
+
 ## 0.20.1
 * Fix possible MySql error processing error message
 
