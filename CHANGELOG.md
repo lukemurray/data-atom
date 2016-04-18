@@ -1,3 +1,6 @@
+## 0.20.3
+* Fix more MySql issues
+
 ## 0.20.2
 * Fix #60 disconnecting MySql connection throws an error
 
