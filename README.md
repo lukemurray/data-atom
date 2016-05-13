@@ -43,6 +43,14 @@ Feel free to open issues or make pull requests!
 - 'Data Atom: Edit Connections'
   - Open the saved connections file for editing
 
+##Contributing
+Please do :)
+- It is written in ES6 using Babel (provided by Atom)
+- I am slowing moving callbacks I control to `Promise`s
+- Looking at implementing support for your favorite DB?
+  - Check out `data-manager.js` for what you need to implement
+  - See `postgres-manager.js` for the most complete example
+
 ##The Random TODO list
 - Replace grid with something better to allow row selection, column selection etc.
 - Manage saved connections
