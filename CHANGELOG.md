@@ -1,3 +1,7 @@
+## 0.20.4
+* Support 'postgres' as well for a PostgreSQL url protocol
+* Show a notification to the user is protocol is unsupported (instead of an uncaught error)
+
 ## 0.20.3
 * Fix more MySql issues
 
