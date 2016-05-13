@@ -1,3 +1,7 @@
+## 0.21.0
+* Refactored some code to use Promises
+* Better comments about how to add DB support
+
 ## 0.20.4
 * Support 'postgres' as well for a PostgreSQL url protocol
 * Show a notification to the user is protocol is unsupported (instead of an uncaught error)
