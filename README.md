@@ -5,7 +5,7 @@ Data Atom allows you to write and execute queries against your favorite database
 
 Feel free to open issues or make pull requests!
 
-![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![Data Atom](https://cloud.githubusercontent.com/assets/156625/15249612/ccd377b0-1963-11e6-88ad-42eee914fc38.gif)
 
 ##Features
 - Supports
