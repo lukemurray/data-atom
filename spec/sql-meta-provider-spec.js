@@ -25,9 +25,9 @@ describe('SQLMetaProvider', () => {
       ]};
       let tables = SQLMetaProvider.getTableNames(editor, 'test', 'something');
 
-      expect(tables).not.toContain({text: 'other_table', rightLabel: 'Table'});
-      expect(tables).toContain({text: 'test_table', rightLabel: 'Table'});
-      expect(tables).toContain({text: 'test_table_2', rightLabel: 'Table'});
+      expect(tables).not.toContain({text: 'other_table', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-tbl"></span>Table'});
+      expect(tables).toContain({text: 'test_table', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-tbl"></span>Table'});
+      expect(tables).toContain({text: 'test_table_2', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-tbl"></span>Table'});
       expect(tables.length).toEqual(2);
     });
   });
@@ -49,7 +49,7 @@ describe('SQLMetaProvider', () => {
         ]
       };
       let cols = SQLMetaProvider.getColumnNames(editor, 'test', 'tbl');
-      expect(cols).toContain({text: 'test_col', rightLabel: 'Column', leftLabel: 'varchar'});
+      expect(cols).toContain({text: 'test_col', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-col"></span>Column', leftLabel: 'varchar'});
       expect(cols.length).toEqual(1);
     });
   });
