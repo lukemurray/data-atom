@@ -1,3 +1,6 @@
+## 0.22.0
+* Added icons for autocomplete (#77)
+
 ## 0.21.0
 * Refactored some code to use Promises
 * Better comments about how to add DB support
