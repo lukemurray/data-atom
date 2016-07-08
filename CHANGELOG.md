@@ -1,11 +1,9 @@
-## 0.22.0
-* Added icons for autocomplete (#77)
-
 ## 0.21.0
 * Refactored some code to use Promises
 * Better comments about how to add DB support
 * Fix #65 MySql error is not a string
 * Now uses atom styled tooltips
+* Added icons for autocomplete (#77)
 
 ## 0.20.4
 * Support 'postgres' as well for a PostgreSQL url protocol
