@@ -9,6 +9,20 @@
   src: url('atom://data-atom/resources/fontawesome-webfont.woff2') format('woff2');
 }
 
+.data-atom.autocomplete {
+  padding-right: 0.5em;
+
+  &-tbl::before {
+    font-family: "FontAwesome";
+    content: "\f0ce";
+  }
+
+  &-col::before {
+    font-family: "FontAwesome";
+    content: "\f0db";
+  }
+}
+
 // put all our styling under this to minimise clashes
 .data-atom {
   button[disabled]:hover {
