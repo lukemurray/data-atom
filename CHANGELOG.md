@@ -1,3 +1,7 @@
+## 0.22.0
+* Resolve occasional of out-of-sync results state (PR #82)
+* Handle empty DB list (#78)
+
 ## 0.21.0
 * Refactored some code to use Promises
 * Better comments about how to add DB support
