@@ -2,7 +2,8 @@
 * Resolve occasional of out-of-sync results state (PR #82)
 * Fix #78 Handle empty DB list
 * Fix #79 handling error in MySQL
-* 
+* Fix #80 handle no columns in SqlServer
+* Change #81. context menu item `Execute` changed to `Data Atom - Execute` and only show in an editor context menu
 
 ## 0.21.0
 * Refactored some code to use Promises

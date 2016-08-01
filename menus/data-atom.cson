@@ -1,7 +1,7 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
-  'atom-workspace': [
-    { 'label': 'Execute', 'command': 'data-atom:execute' }
+  'atom-text-editor': [
+    { 'label': 'Data Atom - Execute', 'command': 'data-atom:execute' }
   ]
 
 'menu': [
