@@ -1,3 +1,6 @@
+## 0.22.1
+* Fix #83 - thanks mathsalmi
+
 ## 0.22.0
 * Resolve occasional of out-of-sync results state (PR #82)
 * Fix #78 Handle empty DB list
