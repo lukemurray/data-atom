@@ -1,6 +1,34 @@
 'use babel';
 
-import SQLMetaProvider from '../lib/sql-meta-provider';
+import InsertMetaProvider from '../lib/providers/insert-meta-provider';
+import SQLMetaProvider from '../lib/providers/sql-meta-provider';
+
+describe('InsertMetaProvider', () => {
+  describe('Get columns', () => {
+  let editor = {
+    dataAtomColumns: [{
+        name: 'test_col',
+        tableName: 'tbl',
+        type: 'varchar'
+      },
+      {
+        name: 'other_col',
+        tableName: 'tbl',
+        type: 'bool'
+      }]
+    };
+    it('filters by table name including the ALL suggestion when no previous columns exist', () => {
+        let cols = InsertMetaProvider.getTableColumnNames(editor, 'tbl', []);
+        expect(cols).toContain({text: 'test_col', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-col"></span>Column', leftLabel: 'varchar'});
+        expect(cols.length).toEqual(3);
+    });
+    it('filters by table name and only includes columns that are not existing already', () => {
+        let cols = InsertMetaProvider.getTableColumnNames(editor, 'tbl', ['test_col']);
+        expect(cols).toContain({text: 'other_col', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-col"></span>Column', leftLabel: 'bool'});
+        expect(cols.length).toEqual(1);
+    });
+  })
+});
 
 describe('SQLMetaProvider', () => {
   describe('Get table names', () => {
