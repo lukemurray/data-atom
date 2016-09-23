@@ -1,3 +1,8 @@
+## 0.23
+* Implement smarter autocomplete for insert statements (#86) - DSpeckhals
+* Fix #91 - thanks DSpeckhals
+* Prevent new connections on non-editor windows (#92)
+
 ## 0.22.1
 * Fix #83 - thanks mathsalmi
 
