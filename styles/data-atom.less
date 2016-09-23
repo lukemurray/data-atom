@@ -37,30 +37,82 @@
     height: 2em;
     margin-bottom: 0.75em;
   }
-}
 
-// all styles for a data atom dialog
-.data-atom.dialog {
-  .heading {
-    padding-left: 5px;
-    font-size: 14pt;
+  .row {
+    display: flex;
+    flex-direction: row;
+    padding: .3rem 0;
   }
 
-  .btn-padding-left {
-    margin-left: 10px;
+  .row-centered {
+    align-items: center;
   }
 
-  .label-or {
-    margin-left: -15px;
-    margin-right: 15px;
+  .row-item {
+    flex-shrink: 1;
+    flex-grow: 0;
   }
 
-  .form-group {
-    margin-bottom: 0px;
+  .row-item-flex {
+    flex-shrink: 1;
+    flex-grow: 1;
   }
 
-  .buttons {
-    text-align: right;
+  .row-item-pad-right {
+    padding-right: .3rem;
+  }
+
+  .row-item-pad-left {
+    padding-left: .3rem;
+  }
+
+  // all styles for a data atom dialog
+  &.dialog {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+
+    select {
+      margin-bottom: 0;
+    }
+
+    label {
+      margin-bottom: 0;
+    }
+
+    .editor.mini {
+      margin-bottom: 0;
+    }
+
+    .control-label {
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: 7rem;
+    }
+
+    .heading {
+      padding: 0rem 0.3rem 1rem 0;
+      font-size: 14pt;
+    }
+
+    .btn-padding-left {
+      margin-left: 10px;
+    }
+
+    .label-or {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .control-port {
+      padding-left: 2rem;
+      padding-right: 1rem;
+    }
+
+    .buttons {
+      text-align: right;
+      padding: 1rem 0 0 0;
+    }
   }
 }
 
