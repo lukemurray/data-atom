@@ -2,6 +2,9 @@
 'context-menu':
   'atom-text-editor': [
     { 'label': 'Data Atom - Execute', 'command': 'data-atom:execute' }
+  ],
+  '.db-list .table-name': [
+    { 'label': 'Query Table', 'command': 'data-atom:query-table' }
   ]
 
 'menu': [
