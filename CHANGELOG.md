@@ -1,3 +1,7 @@
+## 0.24
+* There is now a Query table context menu int he details view (@chrislondon)
+* Fix #99 deprecation warning (@DSpeckhals)
+
 ## 0.23
 * Implement smarter autocomplete for insert statements (#86) - DSpeckhals
 * Fix #91 - thanks DSpeckhals
