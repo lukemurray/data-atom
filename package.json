@@ -1,7 +1,7 @@
 {
   "name": "data-atom",
   "main": "./lib/data-atom",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "Query and manage data sources (databases) from within Atom",
   "activationCommands": [],
   "repository": "https://github.com/lukemurray/data-atom",
