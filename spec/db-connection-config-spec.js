@@ -16,7 +16,7 @@ describe('DbConnectionConfig', function() {
       expect(dbConfig.server).toBe('localhost');
       expect(dbConfig.port).toBe('1234');
       expect(dbConfig.instance).toBe('instance_name');
-      expect(dbConfig.name).toBe('db_name');
+      expect(dbConfig.dbName).toBe('db_name');
       expect(dbConfig.options).toBe('domain=dom&requestTimeout=9999');
     });
   });
