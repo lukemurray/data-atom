@@ -8,7 +8,7 @@ describe('DbConnectionConfig', function() {
   describe('when constructed from a URL', function() {
     it('sets its own properties correctly.', function() {
       dbConfig = new DbConnectionConfig(test_url);
-      console.debug('parsed db config from URL: ' + JSON.stringify(dbConfig));
+      // console.debug('parsed db config from URL: ' + JSON.stringify(dbConfig));
 
       expect(dbConfig.protocol).toBe('deebee');
       expect(dbConfig.user).toBe('dzamo');

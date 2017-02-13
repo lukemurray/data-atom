@@ -43,6 +43,11 @@ Feel free to open issues or make pull requests!
 - 'Data Atom: Edit Connections'
   - Open the saved connections file for editing
 
+##SQL Server specifics
+- To use Windows authentication, include the option `domain=DOMAIN`.
+- To connect to a named SQL Server instance use the format `SERVER\INSTANCE` to specify the server.
+- See the complete listing of `node-mssql` driver options available to you at https://github.com/patriksimek/node-mssql.
+
 ##Contributing
 Please do :)
 - It is written in ES6 using Babel (provided by Atom)
