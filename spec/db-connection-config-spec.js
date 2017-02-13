@@ -2,11 +2,11 @@
 
 import DbConnectionConfig from '../lib/db-connection-config';
 
-const test_url = 'deebee://dzamo:his pwd@localhost:1234/instance_name/db_name?domain=dom&requestTimeout=9999';
+const test_url = 'deebee://dzamo:his%20pwd@localhost:1234/instance_name/db_name?domain=dom&requestTimeout=9999';
 
 describe('DbConnectionConfig', function() {
-  describe('when constructed', function() {
-    it('sets the properties of its config object', function() {
+  describe('when constructed from a URL', function() {
+    it('sets its own properties correctly.', function() {
       dbConfig = new DbConnectionConfig(test_url);
       console.debug('parsed db config from URL: ' + JSON.stringify(dbConfig));
 
@@ -16,8 +16,8 @@ describe('DbConnectionConfig', function() {
       expect(dbConfig.server).toBe('localhost');
       expect(dbConfig.port).toBe('1234');
       expect(dbConfig.instance).toBe('instance_name');
-      expect(dbConfig.dbName).toBe('db_name');
-      expect(dbConfig.options).toBe('domain=dom&requestTimeout=9999');
+      expect(dbConfig.database).toBe('db_name');
+      expect(dbConfig.options).toBe('domain=dom, requestTimeout=9999');
     });
   });
 
