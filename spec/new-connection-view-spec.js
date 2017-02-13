@@ -75,7 +75,7 @@ describe('NewConnectionDialog', () => {
       expect(view.refs.dbOptions.getModel().getText()).toEqual('');
       view.refs.url.getModel().setText('postgresql://me:password1@server/myDb?o=v&hello=world');
       advanceClock(modifiedDelay);
-      expect(view.refs.dbOptions.getModel().getText()).toEqual('o=v, hello=world');
+      expect(view.refs.dbOptions.getModel().getText()).toEqual('o=v,hello=world');
     });
 
     it("works with hash in pass", () => {
@@ -141,7 +141,7 @@ describe('NewConnectionDialog', () => {
 
     it("reads multiple options", () => {
       view.refs.dbServer.focus();
-      view.refs.dbOptions.getModel().setText('ssl=true, option=val');
+      view.refs.dbOptions.getModel().setText('ssl=true,option=val');
       view.refs.dbServer.getModel().setText('places');
       expect(view.refs.url.getModel().getText()).toEqual('postgresql://places/?ssl=true&option=val');
     });
