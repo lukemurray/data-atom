@@ -75,7 +75,7 @@ describe('NewConnectionDialog', () => {
       expect(view.refs.dbOptions.getModel().getText()).toEqual('');
       view.refs.url.getModel().setText('postgresql://me:password1@server/myDb?o=v&hello=world');
       advanceClock(modifiedDelay);
-      expect(view.refs.dbOptions.getModel().getText()).toEqual('o=v, hello=world');
+      expect(view.refs.dbOptions.getModel().getText()).toEqual('o=v,hello=world');
     });
 
     it("works with hash in pass", () => {
@@ -98,14 +98,14 @@ describe('NewConnectionDialog', () => {
     it("reads the server value", () => {
       view.refs.dbServer.focus();
       view.refs.dbServer.getModel().setText('my-server');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server/');
     });
 
     it("reads the port value", () => {
       view.refs.dbServer.focus();
       view.refs.dbServer.getModel().setText('my-server');
       view.refs.dbPort.getModel().setText('1122');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server:1122');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://my-server:1122/');
     });
 
     it("reads the username & password value", () => {
@@ -113,7 +113,7 @@ describe('NewConnectionDialog', () => {
       view.refs.dbServer.getModel().setText('my-server');
       view.refs.dbUser.getModel().setText('admin');
       view.refs.dbPassword.getModel().setText('badPass');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:badPass@my-server');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:badPass@my-server/');
     });
 
     it("works with hash in pass", () => {
@@ -121,8 +121,8 @@ describe('NewConnectionDialog', () => {
       view.refs.dbServer.getModel().setText('my-server');
       view.refs.dbUser.getModel().setText('admin');
       view.refs.dbPassword.getModel().setText('bad#Pass');
-      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:bad#Pass@my-server');
-      expect(view.state.escapedUrl).toEqual('postgresql://admin:bad%23Pass@my-server');
+      expect(view.refs.url.getModel().getText()).toEqual('postgresql://admin:bad%23Pass@my-server/');
+      expect(view.state.escapedUrl).toEqual('postgresql://admin:bad%23Pass@my-server/');
     });
 
     it("reads the db name value", () => {
@@ -141,7 +141,7 @@ describe('NewConnectionDialog', () => {
 
     it("reads multiple options", () => {
       view.refs.dbServer.focus();
-      view.refs.dbOptions.getModel().setText('ssl=true, option=val');
+      view.refs.dbOptions.getModel().setText('ssl=true,option=val');
       view.refs.dbServer.getModel().setText('places');
       expect(view.refs.url.getModel().getText()).toEqual('postgresql://places/?ssl=true&option=val');
     });
