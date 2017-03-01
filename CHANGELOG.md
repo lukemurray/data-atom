@@ -1,3 +1,6 @@
+## 0.25
+* MSSQL Windows auth is supported - thanks @DzamoNorton
+
 ## 0.24
 * There is now a Query table context menu int he details view (@chrislondon)
 * Fix #99 deprecation warning (@DSpeckhals)
