@@ -12,6 +12,7 @@ Feel free to open issues or make pull requests!
   - PostgreSQL
   - Microsoft SQL Server
   - MySQL (Beta support, see issues for known problems)
+  - [Metabase](http://www.metabase.com/) (Beta support)
 - Execute custom queries or a whole file
   - Separate results for each file/editor view
   - Different connections per editor view
