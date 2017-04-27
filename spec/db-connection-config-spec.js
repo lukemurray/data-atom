@@ -21,6 +21,7 @@ describe('DbConnectionConfig', function() {
     });
   });
 
+  /* the connection name now used is the user-specified one and stored in the data manager, not here.
   describe('getConnectionName', function() {
     it('returns a connection name of user@server', function() {
       dbConfig = new DbConnectionConfig(test_url);
@@ -28,6 +29,7 @@ describe('DbConnectionConfig', function() {
       expect(dbConfig.getConnectionName()).toBe('dzamo@localhost');
     });
   });
+  */
 
   describe('getUrl', function() {
     it('returns a URL matching the one it was constructed from', function() {
