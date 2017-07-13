@@ -1,3 +1,7 @@
+## 0.25.2
+* Fix #133 details pane not showing in recent Atom
+* Fix #124 connecting to multiple DBs on the same host on different ports (@DzamoNorton)
+
 ## 0.25.1
 https://xysense.workable.com/j/3AD8545B7E
 * New Data Atom command `Execute Current Query` that uses Atom's paragraph selections to try to best execute the current query where the cursor is (thanks @DzamoNorton). Closes #127
