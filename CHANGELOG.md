@@ -1,3 +1,6 @@
+## 0.26.0
+* Add default SQL syntax highlighting to the quick editor in the results view (#106)
+
 ## 0.25.2
 * Fix #133 details pane not showing in recent Atom
 * Fix #124 connecting to multiple DBs on the same host on different ports (@DzamoNorton)
