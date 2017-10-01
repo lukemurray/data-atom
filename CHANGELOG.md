@@ -2,6 +2,7 @@
 * Fix #114 - cannot switch Database in Mysql
 * Fix #97 - Disconnect tooltip getting stuck
 * Fix #42 - Enable cancelling of MySQL queries
+* Fix #117 - display BIT type for MySQL (and others)
 * Add default SQL syntax highlighting to the quick editor in the results view (#106)
 * Add fuzzy searching for table and column autocomplete (#105)
 

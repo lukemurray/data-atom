@@ -11,7 +11,7 @@ Feel free to open issues or make pull requests!
 - Supports
   - PostgreSQL
   - Microsoft SQL Server
-  - MySQL (Beta support, see issues for known problems)
+  - MySQL
 - Execute custom queries or a whole file
   - Separate results for each file/editor view
   - Different connections per editor view
