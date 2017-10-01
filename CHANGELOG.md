@@ -2,6 +2,7 @@
 * Fix #114 - cannot switch Database in Mysql
 * Fix #97 - Disconnect tooltip getting stuck
 * Add default SQL syntax highlighting to the quick editor in the results view (#106)
+* Add fuzzy searching for table and column autocomplete (#105)
 
 ## 0.25.2
 * Fix #133 details pane not showing in recent Atom

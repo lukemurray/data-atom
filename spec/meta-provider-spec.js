@@ -36,11 +36,6 @@ describe('SQLMetaProvider', () => {
       let editor = {
         dataAtomTables: [
           {
-            name: 'test_table',
-            schemaName: 'something',
-            type: 'Table'
-          },
-          {
             name: 'other_table',
             schemaName: 'something',
             type: 'Table'
@@ -49,14 +44,20 @@ describe('SQLMetaProvider', () => {
             name: 'test_table_2',
             schemaName: 'something',
             type: 'Table'
-          }
+          },
+          {
+            name: 'test_table',
+            schemaName: 'something',
+            type: 'Table'
+          },
       ]};
       let tables = SQLMetaProvider.getTableNames(editor, 'test', 'something');
 
-      expect(tables).not.toContain({text: 'other_table', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-tbl"></span>Table'});
-      expect(tables).toContain({text: 'test_table', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-tbl"></span>Table'});
-      expect(tables).toContain({text: 'test_table_2', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-tbl"></span>Table'});
-      expect(tables.length).toEqual(2);
+      expect(tables[0].text).toEqual('test_table_2');
+      expect(tables[1].text).toEqual('test_table');
+      // fuzzy search includes an amount of non-matches at the end
+      expect(tables[2].text).toEqual('other_table');
+      expect(tables.length).toEqual(3);
     });
   });
 
