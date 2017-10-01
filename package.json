@@ -26,7 +26,6 @@
   "dependencies": {
     "dom-listener": "0.1.2",
     "etch": "0.12.6",
-    "fuse.js": "3.1.0",
     "mssql": "3.3.0",
     "mysql": "2.14.1",
     "pg": "git+https://github.com/lukemurray/node-postgres#master",
