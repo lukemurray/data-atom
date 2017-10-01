@@ -1,4 +1,6 @@
 ## 0.26.0
+* Fix #114 - cannot switch Database in Mysql
+* Fix #97 - Disconnect tooltip getting stuck
 * Add default SQL syntax highlighting to the quick editor in the results view (#106)
 
 ## 0.25.2
