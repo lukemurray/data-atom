@@ -5,6 +5,7 @@
 * Fix #117 - display BIT type for MySQL (and others)
 * Add default SQL syntax highlighting to the quick editor in the results view (#106)
 * Add fuzzy searching for table and column autocomplete (#105)
+* Added schema search in autocomplete for postgres and MSSQL
 * Autocomplete information updates after a CREATE/ALTER/DROP (Postgres)
 
 ## 0.25.2
