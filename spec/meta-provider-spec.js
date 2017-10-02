@@ -47,17 +47,15 @@ describe('SQLMetaProvider', () => {
           },
           {
             name: 'test_table',
-            schemaName: 'something',
+            schemaName: 'something_else',
             type: 'Table'
           },
       ]};
       let tables = SQLMetaProvider.getTableNames(editor, 'test', 'something');
-
-      expect(tables[0].text).toEqual('test_table_2');
-      expect(tables[1].text).toEqual('test_table');
-      // fuzzy search includes an amount of non-matches at the end
-      expect(tables[2].text).toEqual('other_table');
-      expect(tables.length).toEqual(3);
+      // fuzzy search is done by autocomplete+ so we return a full list
+      expect(tables[0].text).toEqual('other_table');
+      expect(tables[1].text).toEqual('test_table_2');
+      expect(tables.length).toEqual(2);
     });
   });
 
@@ -74,12 +72,17 @@ describe('SQLMetaProvider', () => {
             name: 'other_col',
             tableName: 'tbl',
             type: 'bool'
+          },
+          {
+            name: 'other_col',
+            tableName: 'tbl2',
+            type: 'bool'
           }
         ]
       };
       let cols = SQLMetaProvider.getColumnNames(editor, 'test', 'tbl');
       expect(cols).toContain({text: 'test_col', rightLabelHTML: '<span class="data-atom autocomplete autocomplete-col"></span>Column', leftLabel: 'varchar'});
-      expect(cols.length).toEqual(1);
+      expect(cols.length).toEqual(2); // fizzy search is done by autocomplete+
     });
   });
 })
