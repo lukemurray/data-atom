@@ -5,6 +5,7 @@
 * Fix #117 - display BIT type for MySQL (and others)
 * Add default SQL syntax highlighting to the quick editor in the results view (#106)
 * Add fuzzy searching for table and column autocomplete (#105)
+* Autocomplete information updates after a CREATE/ALTER/DROP (Postgres)
 
 ## 0.25.2
 * Fix #133 details pane not showing in recent Atom
