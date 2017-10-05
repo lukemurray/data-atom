@@ -1,3 +1,6 @@
+## 0.26.1
+* Fix #142 - Failure to activate data-atom, cannot read property 'jquery' of undefined (@DzamoNorton)
+
 ## 0.26.0
 * Fix #114 - cannot switch Database in Mysql
 * Fix #97 - Disconnect tooltip getting stuck
