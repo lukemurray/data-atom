@@ -1,3 +1,6 @@
+## 0.26.2
+* Fix #138 - remove super user requirement for details view in postgres.
+
 ## 0.26.1
 * Fix #142 - Failure to activate data-atom, cannot read property 'jquery' of undefined (@DzamoNorton)
 
