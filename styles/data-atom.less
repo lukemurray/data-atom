@@ -119,23 +119,13 @@
 // styles for the main view/panel
 .data-atom.data-atom-panel {
   cursor: default;
-  min-height: 100px;
-  height: 200px;
+  height: 100%;
   z-index: 2;
   margin: 0;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-
-  .resize-handle {
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    top: -4px;
-    cursor: row-resize;
-    z-index: 3;
-  }
 
   .text-selectable {
     cursor: text;
@@ -326,9 +316,6 @@
 @treePadding: 17px;
 
 .data-details-panel {
-  min-width: 100px;
-  width: 250px;
-  height: 100%;
   overflow: scroll;
 
   li {
@@ -348,20 +335,9 @@
     display: inline;
   }
 
-  .resize-handle {
-    float: right;
-    width: 8px;
-    height: 100%;
-    cursor: col-resize;
-    z-index: 3;
-
-    &.right {
-      float: left;
-    }
-  }
-
   .no-connection {
-    padding-top: 5px;
+    padding-top: 8px;
+    text-align: center;
     font-size: 1.3em;
 
     .hidden {
@@ -370,9 +346,6 @@
   }
 
   .details-container {
-    overflow-y: scroll;
-    overflow-x: scroll;
-    height:100%;
   }
 
   .db-list {
