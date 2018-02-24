@@ -5,7 +5,7 @@ import {Workspace} from 'atom';
 import DataAtomView from '../lib/views/data-atom-view';
 
 function findDataAtomPanel(workspace) {
-  return [].slice.call(workspace.getElementsByTagName('section')).filter(i => i.classList.contains('data-atom-panel'));
+  return workspace.querySelectorAll('.atom-dock-open .data-atom-panel');
 }
 
 describe("DataAtomView", () => {
@@ -16,34 +16,34 @@ describe("DataAtomView", () => {
   });
 
   describe("when toggling view", () => {
-    it("it sets isShowing", () => {
+    it("it sets isShowing", testAsync(async () => {
       var view = new DataAtomView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
-      view.toggleView();
+      await view.toggleView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
-      view.toggleView();
+      await view.toggleView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
-    });
+    }));
   });
 
   describe("when calling show()", () => {
-    it("it sets isShowing true", () => {
+    it("it sets isShowing true", testAsync(async () => {
       var view = new DataAtomView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
-      view.show();
+      await view.show();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
-    });
+    }));
   });
 
   describe("when calling hide()", () => {
-    it("it sets isShowing false", () => {
+    it("it sets isShowing false", testAsync(async () => {
       var view = new DataAtomView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
-      view.show();
+      await view.show();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
-      view.hide();
+      await view.hide();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
-    });
+    }));
   });
 
   describe('when toggling query source', () => {
@@ -93,3 +93,9 @@ describe("DataAtomView", () => {
     });
   });
 });
+
+function testAsync(runAsync) {
+  return (done) => {
+    runAsync().then(done, e => { fail(e); done(); });
+  };
+}
