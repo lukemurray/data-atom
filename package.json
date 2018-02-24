@@ -7,7 +7,7 @@
   "repository": "https://github.com/lukemurray/data-atom",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.17.0 <2.0.0"
   },
   "consumedServices": {
     "status-bar": {
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "dom-listener": "0.1.2",
-    "etch": "0.12.6",
+    "etch": "0.12.7",
     "mssql": "3.3.0",
     "mysql": "2.14.1",
     "pg": "git+https://github.com/lukemurray/node-postgres#master",

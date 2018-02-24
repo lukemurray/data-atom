@@ -1,3 +1,6 @@
+## 0.27
+* Data Atom now uses the Atom Dock api for it's results and details pane. (thanks @herophuong)
+
 ## 0.26.2
 * Fix #138 - remove super user requirement for details view in postgres.
 
