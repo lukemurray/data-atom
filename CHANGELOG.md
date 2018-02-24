@@ -1,4 +1,4 @@
-## 0.27
+## 0.29
 * Data Atom now uses the Atom Dock api for it's results and details pane. (thanks @herophuong)
 
 ## 0.26.2
