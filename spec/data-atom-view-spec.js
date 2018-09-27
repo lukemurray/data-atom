@@ -19,10 +19,12 @@ describe("DataAtomView", () => {
     it("it sets isShowing", testAsync(async () => {
       var view = new DataAtomView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
+      // first toggle will create the elements
       await view.toggleView();
       expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
+      // this toggle hides it, but the elements are still in the DOM
       await view.toggleView();
-      expect(findDataAtomPanel(workspaceElement).length).toEqual(0);
+      expect(findDataAtomPanel(workspaceElement).length).toEqual(1);
     }));
   });
 
