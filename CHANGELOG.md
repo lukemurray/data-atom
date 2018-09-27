@@ -1,3 +1,7 @@
+## 0.29.1
+* Fix #160 us auto complete min word config. @SKalt
+* Fix #166 restrict autocomplete to SQL scopes @SKalt
+
 ## 0.29
 * Data Atom now uses the Atom Dock api for it's results and details pane. (thanks @herophuong)
 
