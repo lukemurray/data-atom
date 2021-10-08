@@ -1,3 +1,9 @@
+# No longer maintained
+
+Please note that this package is no longer maintained by me (time, focus etc.). It still works for simple use cases. 
+
+If any one wants to jump in and start contributing please reach out.
+
 # Data Atom package
 [![Build Status](https://travis-ci.org/lukemurray/data-atom.svg?branch=master)](https://travis-ci.org/lukemurray/data-atom)
 
